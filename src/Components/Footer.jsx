@@ -335,8 +335,27 @@ const Footer = () => {
                 </motion.a>
               ))}
             </motion.div>
+            <motion.footer
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
+              className="text-center mt-6 text-sm text-gray-500 select-none"
+            >
+              <p>Copyright © 2025 Muhsin Mashkur Academy</p>
+              <p>
+                Developed by{" "}
+                <a
+                  href="https://www.linkedin.com/in/rakinalshahriar/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-teal-600 hover:text-teal-800 cursor-pointer transition-colors underline"
+                  title="Rakin Al Shahriar LinkedIn"
+                >
+                  Rakin Al Shahriar
+                </a>
+              </p>
+            </motion.footer>
           </motion.div>
-
         </div>
       </div>
     </section>
