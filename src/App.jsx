@@ -1,13 +1,20 @@
-import React from 'react'
+import React from 'react';
 import Footer from './Components/Footer'
-import Social from './Components/Social'
 import Header from './Components/Header'
+import Home from './Pages/Home'
+import { Route, Routes } from 'react-router-dom'
+import About from './Pages/About'
 
-const App = () => {Header
+const App = () => {
   return (
     <>
       <Header />
-      <Social />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        
+        
+      </Routes>
       <Footer />
     </>
   )
