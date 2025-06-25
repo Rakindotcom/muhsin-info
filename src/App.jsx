@@ -4,6 +4,8 @@ import Header from './Components/Header'
 import Home from './Pages/Home'
 import { Route, Routes } from 'react-router-dom'
 import About from './Pages/About'
+import NotFoundPage from './Pages/404'
+
 
 const App = () => {
   return (
@@ -13,7 +15,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         
-        
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />
     </>

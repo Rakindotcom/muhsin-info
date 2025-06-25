@@ -9,3 +9,76 @@
 .bangla {
     font-family: "Anek Bangla", sans-serif;
 }
+
+/* NotFoundPage.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.nf-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  height: 100vh;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.nf-content {
+  color: #fff;
+  max-width: 600px;
+  animation: fadeIn 0.6s ease;
+}
+
+.nf-code {
+  font-size: 8rem;
+  margin: 0;
+  background: linear-gradient(135deg, #00ffe7, #00bfff);
+  -webkit-text-fill-color: transparent;
+}
+
+.nf-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0.5rem 0;
+}
+
+.nf-text {
+  font-size: 1rem;
+  color: #cfd8dc;
+  margin-bottom: 2rem;
+}
+
+.nf-button {
+  display: inline-block;
+  background-color: #00ffe7;
+  color: #000;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.nf-button:hover {
+  background-color: #ffffff;
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  } 
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

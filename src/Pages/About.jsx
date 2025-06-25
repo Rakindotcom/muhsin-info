@@ -271,7 +271,7 @@ export default function Component() {
                             </CardHeader>
                             <CardContent>
                                 <p className="text-gray-300 mb-4">Deep dive into Qur'anic understanding with comprehensive analysis</p>
-                                <Button className="bg-emerald-600 hover:bg-emerald-700">
+                                <Button className="hover:cursor-pointer hover:scale-105">
                                     Join Now <ArrowRight className="w-4 h-4 ml-2" />
                                 </Button>
                             </CardContent>
@@ -283,7 +283,7 @@ export default function Component() {
                             </CardHeader>
                             <CardContent>
                                 <p className="text-gray-300 mb-4">Master conversational Arabic with practical, everyday applications</p>
-                                <Button className="bg-blue-600 hover:bg-blue-700">
+                                <Button className="bg-blue-600 hover:bg-blue-700 hover:cursor-pointer hover:scale-105">
                                     Start Learning <ArrowRight className="w-4 h-4 ml-2" />
                                 </Button>
                             </CardContent>
@@ -295,7 +295,7 @@ export default function Component() {
                             </CardHeader>
                             <CardContent>
                                 <p className="text-gray-300 mb-4">Essential Arabic for your spiritual journey to the Holy Land</p>
-                                <Button className="bg-purple-600 hover:bg-purple-700">
+                                <Button className="bg-purple-600 hover:bg-purple-700 hover:cursor-pointer hover:scale-105">
                                     Enroll Now <ArrowRight className="w-4 h-4 ml-2" />
                                 </Button>
                             </CardContent>
@@ -307,7 +307,7 @@ export default function Component() {
                             </CardHeader>
                             <CardContent>
                                 <p className="text-gray-300 mb-4">Transform your prayer experience with complete understanding</p>
-                                <Button className="bg-orange-600 hover:bg-orange-700">
+                                <Button className="bg-orange-600 hover:bg-orange-700 hover:cursor-pointer hover:scale-105">
                                     Begin Journey <ArrowRight className="w-4 h-4 ml-2" />
                                 </Button>
                             </CardContent>
@@ -400,14 +400,14 @@ export default function Component() {
                         Be part of the mission to empower 10 million Bengali Muslims to understand the Qur'an by 2030
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700">
+                        <Button size="lg" className="border-3 border-emerald-500 hover:cursor-pointer hover:scale-101">
                             <BookOpen className="w-5 h-5 mr-2" />
                             Start Your Journey
                         </Button>
                         <Button
                             size="lg"
                             variant="outline"
-                            className="bg-transparent border-gray-600 text-gray-300 hover:bg-gray-800"
+                            className="bg-transparent border-gray-600 text-gray-300 hover:bg-amber-800 hover:cursor-pointer hover:scale-101"
                         >
                             <Users className="w-5 h-5 mr-2" />
                             Contact for Collaboration
