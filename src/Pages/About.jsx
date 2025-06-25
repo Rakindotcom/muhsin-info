@@ -34,14 +34,14 @@ export default function Component() {
                         Mashkur walks a lifelong path to reconnect the Ummah with the meaning of the Qur'an.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700">
+                        <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 hover:cursor-pointer">
                             <BookOpen className="w-5 h-5 mr-2" />
                             View Courses
                         </Button>
                         <Button
                             size="lg"
                             variant="outline"
-                            className="bg-transparent border-gray-600 text-gray-300 hover:bg-gray-800"
+                            className="bg-transparent border-gray-600 text-gray-300 hover:cursor-pointer"
                         >
                             <Users className="w-5 h-5 mr-2" />
                             Join Academy
