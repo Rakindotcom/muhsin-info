@@ -46,11 +46,10 @@ export default function Header() {
               href="https://academy.muhsinmashkur.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 text-white hover:text-emerald-400 transition-colors"
+              className="px-4 py-2 text-yellow-500 hover:text-emerald-400 transition-colors"
             >
               ACADEMY
             </a>
-            <NavItem to="/about" onClick={closeDropdowns} label="ABOUT" />
 
             {/* MEDIA */}
             <Dropdown
@@ -75,7 +74,7 @@ export default function Header() {
               className="bg-emerald-400 hover:bg-emerald-500 text-slate-900 font-medium px-6 py-2 rounded-full transition-colors"
               onClick={closeDropdowns}
             >
-              Book PROGRAM
+              Hire for a Session
             </Link>
           </nav>
 
@@ -125,7 +124,7 @@ export default function Header() {
               className="block w-full bg-emerald-400 hover:bg-emerald-500 text-slate-900 font-medium px-6 py-3 rounded-full text-center transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Book PROGRAM
+              Hire for a Session
             </Link>
           </div>
         </div>
