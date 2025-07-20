@@ -116,7 +116,7 @@ const Footer = () => {
           </h4>
           <div className="relative inline-block">
             <h2 className="text-white text-4xl md:text-5xl font-bold">
-              Reach Out and Engage
+              Hire for a Session
             </h2>
             {[{ top: 0, left: 0 }, { top: 0, right: 0 }, { bottom: 0, left: "50%" }, { bottom: "50%", right: 0 }].map(
               (pos, i) => (

@@ -4,7 +4,7 @@ import Header from './Components/Header'
 import Home from './Pages/Home'
 import { Route, Routes } from 'react-router-dom'
 import NotFoundPage from './Pages/404'
-
+import ConsultancyPage from './Pages/ConsultancyPage';
 
 const App = () => {
   return (
@@ -12,6 +12,7 @@ const App = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/consultancy" element={<ConsultancyPage />} />
         
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

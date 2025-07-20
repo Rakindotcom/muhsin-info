@@ -8,6 +8,12 @@ export default function Header() {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const location = useLocation();
 
+  const scrollToFooter = () => {
+    const footer = document.getElementById('contact');
+    if (footer) {
+      footer.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll);
@@ -70,9 +76,8 @@ export default function Header() {
             <div className="h-6 w-px bg-gray-600 mx-2"></div>
 
             <Link
-              to="/book"
               className="bg-emerald-400 hover:bg-emerald-500 text-slate-900 font-medium px-6 py-2 rounded-full transition-colors"
-              onClick={closeDropdowns}
+              onClick={scrollToFooter}
             >
               Hire for a Session
             </Link>

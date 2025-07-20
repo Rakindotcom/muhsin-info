@@ -255,64 +255,7 @@ export default function Component() {
             <section className="py-16 px-4 bg-gray-800/30">
             <BookShowcase />
             </section>
-            {/* Signature Courses */}
-            <section className="py-16 px-4">
-                <div className="max-w-6xl mx-auto">
-                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white">Signature Courses</h2>
-                    <div className="grid md:grid-cols-2 gap-8">
-                        <Card className="bg-gradient-to-br from-emerald-900/20 to-blue-900/20 border-emerald-800">
-                            <CardHeader>
-                                <CardTitle className="text-emerald-400 text-xl">
-                                    📘 Learn Quran with Meaning – Tadabbur Series
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <p className="text-gray-300 mb-4">Deep dive into Qur'anic understanding with comprehensive analysis</p>
-                                <Button className="hover:cursor-pointer hover:scale-105">
-                                    Join Now <ArrowRight className="w-4 h-4 ml-2" />
-                                </Button>
-                            </CardContent>
-                        </Card>
-
-                        <Card className="bg-gradient-to-br from-blue-900/20 to-purple-900/20 border-blue-800">
-                            <CardHeader>
-                                <CardTitle className="text-blue-400 text-xl">🔥 Basic Spoken Arabic for Bengali Speakers</CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <p className="text-gray-300 mb-4">Master conversational Arabic with practical, everyday applications</p>
-                                <Button className="bg-blue-600 hover:bg-blue-700 hover:cursor-pointer hover:scale-105">
-                                    Start Learning <ArrowRight className="w-4 h-4 ml-2" />
-                                </Button>
-                            </CardContent>
-                        </Card>
-
-                        <Card className="bg-gradient-to-br from-purple-900/20 to-pink-900/20 border-purple-800">
-                            <CardHeader>
-                                <CardTitle className="text-purple-400 text-xl">🕋 Arabic for Hajj & Umrah Travelers</CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <p className="text-gray-300 mb-4">Essential Arabic for your spiritual journey to the Holy Land</p>
-                                <Button className="bg-purple-600 hover:bg-purple-700 hover:cursor-pointer hover:scale-105">
-                                    Enroll Now <ArrowRight className="w-4 h-4 ml-2" />
-                                </Button>
-                            </CardContent>
-                        </Card>
-
-                        <Card className="bg-gradient-to-br from-orange-900/20 to-red-900/20 border-orange-800">
-                            <CardHeader>
-                                <CardTitle className="text-orange-400 text-xl">🕌 Mindful Salah: Understanding Every Word</CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <p className="text-gray-300 mb-4">Transform your prayer experience with complete understanding</p>
-                                <Button className="bg-orange-600 hover:bg-orange-700 hover:cursor-pointer hover:scale-105">
-                                    Begin Journey <ArrowRight className="w-4 h-4 ml-2" />
-                                </Button>
-                            </CardContent>
-                        </Card>
-                    </div>
-                </div>
-            </section>
-
+            
             {/* Testimonials */}
             <section className="py-16 px-4 bg-gray-900/30">
                 <div className="max-w-4xl mx-auto">
