@@ -115,51 +115,80 @@ export default function Component() {
             </section>
 
             {/* Academic Excellence */}
-            <section className="py-16 px-4 bg-gray-900/30">
-                <div className="max-w-6xl mx-auto">
-                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white">Academic Excellence</h2>
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <Card className="bg-gray-900 border-gray-800 hover:border-emerald-800 transition-colors">
-                            <CardHeader>
-                                <CardTitle className="text-emerald-400 flex items-center">
-                                    <Award className="w-5 h-5 mr-2" />
-                                    Prime Minister's Gold Medal
-                                </CardTitle>
-                                <CardDescription className="text-gray-400">2015 - University of Dhaka</CardDescription>
-                            </CardHeader>
-                            <CardContent>
-                                <p className="text-gray-300">Awarded for outstanding academic performance in Arabic studies</p>
-                            </CardContent>
-                        </Card>
+            <section className="mt-16 max-w-6xl mx-auto px-4">
+  <h3 className="text-3xl font-extrabold text-center mb-12 text-emerald-400 tracking-wide drop-shadow-md">
+    Education
+  </h3>
 
-                        <Card className="bg-gray-900 border-gray-800 hover:border-emerald-800 transition-colors">
-                            <CardHeader>
-                                <CardTitle className="text-emerald-400 flex items-center">
-                                    <BookOpen className="w-5 h-5 mr-2" />
-                                    First Academic Researcher
-                                </CardTitle>
-                                <CardDescription className="text-gray-400">Qur'anic Arabic in Bangladesh</CardDescription>
-                            </CardHeader>
-                            <CardContent>
-                                <p className="text-gray-300">Pioneering research in Qur'anic Arabic pedagogy for Bengali speakers</p>
-                            </CardContent>
-                        </Card>
+  <div className="grid md:grid-cols-2 gap-8">
+    {/* PhD */}
+    <div className="bg-gray-800 border border-emerald-600 rounded-lg p-6 shadow-lg hover:shadow-emerald-500 transition-shadow duration-300">
+      <div className="flex items-center mb-3">
+        <span className="text-emerald-400 text-2xl mr-3">🎓</span>
+        <h4 className="text-xl font-bold text-white">PhD - Ongoing</h4>
+      </div>
+      <p className="text-gray-300 font-semibold mb-1">Department of Arabic, University of Dhaka</p>
+      <p className="text-gray-400 italic">
+        Topic: <span className="text-emerald-300 font-medium">Teaching the Meaning of the Holy Quran in Primary, Secondary, and Higher Secondary Levels: An Empirical Study</span>
+      </p>
+    </div>
 
-                        <Card className="bg-gray-900 border-gray-800 hover:border-emerald-800 transition-colors">
-                            <CardHeader>
-                                <CardTitle className="text-emerald-400 flex items-center">
-                                    <Heart className="w-5 h-5 mr-2" />
-                                    Hafiz at Age 11
-                                </CardTitle>
-                                <CardDescription className="text-gray-400">2001 - Al-Fatah Academy</CardDescription>
-                            </CardHeader>
-                            <CardContent>
-                                <p className="text-gray-300">Memorized the complete Qur'an with first-class distinction</p>
-                            </CardContent>
-                        </Card>
-                    </div>
-                </div>
-            </section>
+    {/* MPhil */}
+    <div className="bg-gray-800 border border-emerald-600 rounded-lg p-6 shadow-lg hover:shadow-emerald-500 transition-shadow duration-300">
+      <div className="flex items-center mb-3">
+        <span className="text-emerald-400 text-2xl mr-3">📚</span>
+        <h4 className="text-xl font-bold text-white">Master of Philosophy (MPhil) - 2022</h4>
+      </div>
+      <p className="text-gray-300 font-semibold mb-1"><strong>Institution:</strong> University Of Dhaka</p>
+      <p className="text-gray-300 font-semibold mb-1"><strong>Department:</strong> Department of Arabic</p>
+      <p className="text-gray-400 italic mb-1">
+        Topic: <span className="text-emerald-300 font-medium">“The Method of Teaching the Meaning of Al-Quran: An Empirical Study on Bengali Speaking People”</span>
+      </p>
+      <p className="text-gray-400">Degree Awarded on 27th of March 2022 with Scholarship.</p>
+    </div>
+
+    {/* MA */}
+    <div className="bg-gray-800 border border-emerald-600 rounded-lg p-6 shadow-lg hover:shadow-emerald-500 transition-shadow duration-300">
+      <div className="flex items-center mb-3">
+        <span className="text-emerald-400 text-2xl mr-3">🎓</span>
+        <h4 className="text-xl font-bold text-white">Master of Arts (M.A) - 2015</h4>
+      </div>
+      <p className="text-gray-300 font-semibold mb-1">Department of Arabic, University of Dhaka</p>
+      <p className="text-emerald-300 font-bold">CGPA 4.00 (Out of 4.00) — 1st class 1st (1st Position)</p>
+    </div>
+
+    {/* BA */}
+    <div className="bg-gray-800 border border-emerald-600 rounded-lg p-6 shadow-lg hover:shadow-emerald-500 transition-shadow duration-300">
+      <div className="flex items-center mb-3">
+        <span className="text-emerald-400 text-2xl mr-3">📜</span>
+        <h4 className="text-xl font-bold text-white">Bachelor of Arts (B.A) - 2014</h4>
+      </div>
+      <p className="text-gray-300 font-semibold mb-1">Department of Arabic, University of Dhaka</p>
+      <p className="text-emerald-300 font-bold">C.G.P.A 3.98 (out of 4.00), 1st class 1st, 1st position in the faculty of Arts</p>
+    </div>
+
+    {/* Takmeel / Dawratul Hadith */}
+    <div className="bg-gray-800 border border-emerald-600 rounded-lg p-6 shadow-lg hover:shadow-emerald-500 transition-shadow duration-300">
+      <div className="flex items-center mb-3">
+        <span className="text-emerald-400 text-2xl mr-3">🕌</span>
+        <h4 className="text-xl font-bold text-white">Takmeel / Dawratul Hadith - 2009</h4>
+      </div>
+      <p className="text-gray-300 font-semibold mb-1">Al Jamiyatul Islamiya Darul Uloom Madani Nagar, Dhaka</p>
+      <p className="text-emerald-300 font-bold">Befaqul Madarisil arabiyyah Bangladesh — 1st class</p>
+    </div>
+
+    {/* Hifzul Qura’n */}
+    <div className="bg-gray-800 border border-emerald-600 rounded-lg p-6 shadow-lg hover:shadow-emerald-500 transition-shadow duration-300">
+      <div className="flex items-center mb-3">
+        <span className="text-emerald-400 text-2xl mr-3">📖</span>
+        <h4 className="text-xl font-bold text-white">Hifzul Qura’n - 2001</h4>
+      </div>
+      <p className="text-gray-300 font-semibold mb-1">Al-Fatah Tahfizul Qura’n Academy, Dhaka</p>
+      <p className="text-emerald-300 font-bold">Befaqul Madarisil arabiyyah Bangladesh — 1st class</p>
+    </div>
+  </div>
+</section>
+
 
             {/* Areas of Expertise */}
             <section className="py-16 px-4">
