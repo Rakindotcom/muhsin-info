@@ -1,33 +1,29 @@
-import React, { useState, useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { useState, useEffect } from "react"
+import { Link, NavLink } from "react-router-dom"
 
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
 
   // Add shadow on scroll
   useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 10);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    const onScroll = () => setIsScrolled(window.scrollY > 10)
+    window.addEventListener("scroll", onScroll)
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [])
 
   // Scroll smoothly to footer with id 'contact'
   const scrollToFooter = (e) => {
-    e.preventDefault();
-    const footer = document.getElementById("contact");
+    e.preventDefault()
+    const footer = document.getElementById("contact")
     if (footer) {
-      footer.scrollIntoView({ behavior: "smooth" });
-      setMobileOpen(false);
+      footer.scrollIntoView({ behavior: "smooth" })
+      setMobileOpen(false)
     }
-  };
+  }
 
   return (
-    <header
-      className={`w-full bg-slate-900 transition-shadow duration-300 ${
-        isScrolled ? "shadow-md" : ""
-      }`}
-    >
+    <header className={`w-full bg-slate-900 transition-shadow duration-300 ${isScrolled ? "shadow-md" : ""}`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-24">
           {/* Logo */}
@@ -35,8 +31,8 @@ export default function Header() {
             <img src="/logo.png" alt="Logo" className="h-20 w-auto" />
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6 text-white font-medium">
+          {/* Desktop Navigation - Now hidden below 1286px */}
+          <nav className="hidden xl:flex items-center space-x-6 text-white font-medium">
             <NavItem to="/" label="HOME" />
             <a
               href="https://academy.muhsinmashkur.com/"
@@ -56,7 +52,6 @@ export default function Header() {
               BLOG
             </a>
             <NavItem to="/consultancy" label="CONSULT NOW" pulse />
-
             <div className="flex items-center space-x-2 ml-6">
               <button
                 onClick={scrollToFooter}
@@ -66,51 +61,35 @@ export default function Header() {
               </button>
               <div className="w-px h-6 bg-white opacity-30 mx-2" />
               <Link
-                to="/tuition"
+                to="/class"
                 className="bg-yellow-400 hover:bg-yellow-500 text-slate-900 px-4 py-2 rounded-full font-semibold transition"
               >
-                ONE TO ONE TUITION
+                ONE TO ONE CLASS
               </Link>
             </div>
           </nav>
 
-          {/* Mobile Menu Toggle */}
+          {/* Mobile Menu Toggle - Now shown below 1286px */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden text-white focus:outline-none"
+            className="xl:hidden text-white focus:outline-none"
             aria-label="Toggle menu"
           >
-            <svg
-              className="h-6 w-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
+            <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {mobileOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               )}
             </svg>
           </button>
         </div>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Navigation - Now shown below 1286px */}
       {mobileOpen && (
-        <div className="md:hidden bg-slate-900 px-4 pb-4 space-y-2 text-white font-medium">
+        <div className="xl:hidden bg-slate-900 px-4 pb-4 space-y-2 text-white font-medium">
           <MobileLink to="/">HOME</MobileLink>
-
           <a
             href="https://academy.muhsinmashkur.com/"
             target="_blank"
@@ -119,7 +98,6 @@ export default function Header() {
           >
             ACADEMY
           </a>
-
           <MobileLink to="/media">MEDIA</MobileLink>
           <a
             href="https://academy.muhsinmashkur.com/blog/"
@@ -129,11 +107,9 @@ export default function Header() {
           >
             BLOG
           </a>
-
           <MobileLink to="/consultancy" pulse>
             CONSULT NOW
           </MobileLink>
-
           <div className="pt-4 flex flex-col space-y-2">
             <button
               onClick={scrollToFooter}
@@ -141,17 +117,14 @@ export default function Header() {
             >
               HIRE FOR A SESSION
             </button>
-            <Link
-              to="/tuition"
-              className="bg-yellow-400 text-slate-900 px-4 py-2 rounded-full text-center font-semibold"
-            >
-              ONE TO ONE TUITION
+            <Link to="/class" className="bg-yellow-400 text-slate-900 px-4 py-2 rounded-full text-center font-semibold">
+              ONE TO ONE CLASS
             </Link>
           </div>
         </div>
       )}
     </header>
-  );
+  )
 }
 
 // Desktop NavItem with optional blinking pulse effect for CONSULT NOW
@@ -159,8 +132,7 @@ const NavItem = ({ to, label, pulse }) => (
   <NavLink
     to={to}
     className={({ isActive }) =>
-      `
-      px-1 hover:text-emerald-400 transition font-medium
+      `px-1 hover:text-emerald-400 transition font-medium
       ${isActive ? "text-emerald-400" : "text-white"}
       ${pulse && !isActive ? "animate-pulse" : ""}
     `
@@ -168,7 +140,7 @@ const NavItem = ({ to, label, pulse }) => (
   >
     {label}
   </NavLink>
-);
+)
 
 // Mobile NavLink with optional blinking pulse effect for CONSULT NOW
 const MobileLink = ({ to, children, pulse }) => (
@@ -180,8 +152,8 @@ const MobileLink = ({ to, children, pulse }) => (
       ${pulse && !isActive ? "animate-pulse" : ""}
       `
     }
-    onClick={() => document.querySelector("button.md\\:hidden")?.click()}
+    onClick={() => document.querySelector("button.xl\\:hidden")?.click()}
   >
     {children}
   </NavLink>
-);
+)

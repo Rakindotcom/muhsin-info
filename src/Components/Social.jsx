@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { FaYoutube, FaLinkedin, FaFacebook, FaTelegram, FaExternalLinkAlt } from "react-icons/fa"
+import { FaYoutube, FaLinkedin, FaFacebook, FaWhatsapp, FaExternalLinkAlt } from "react-icons/fa"
 
 export default function Social() {
     const [isVisible, setIsVisible] = useState(false)
@@ -9,14 +9,14 @@ export default function Social() {
     }, [])
 
     const socialPlatforms = [
-        { name: "YouTube", icon: FaYoutube, color: "bg-red-500", textColor: "text-red-500", link: "#" },
-        { name: "LinkedIn", icon: FaLinkedin, color: "bg-blue-600", textColor: "text-blue-600", link: "#" },
-        { name: "Facebook", icon: FaFacebook, color: "bg-blue-500", textColor: "text-blue-500", link: "#" },
-        { name: "Telegram", icon: FaTelegram, color: "bg-sky-500", textColor: "text-sky-500", link: "#" },
+        { name: "YouTube", icon: FaYoutube, color: "bg-red-500", textColor: "text-red-500", link: "https://www.youtube.com/muhsinmashkur" },
+        { name: "LinkedIn", icon: FaLinkedin, color: "bg-blue-600", textColor: "text-blue-600", link: "https://www.linkedin.com/in/muhsinmashkur/" },
+        { name: "Facebook", icon: FaFacebook, color: "bg-blue-500", textColor: "text-blue-500", link: "https://www.facebook.com/ustazmuhsinmashkur" },
+        { name: "WhatsApp", icon: FaWhatsapp, color: "bg-green-500", textColor: "text-green-500", link: "https://wa.me/+8801811996981" },
     ]
 
     return (
-        <div className="min-h-screen bg-white flex items-center justify-center px-4 py-8 sm:px-6 lg:px-8">
+        <div className="h-[50vh] md:min-h-screen bg-white flex items-center justify-center px-4 py-8 sm:px-6 lg:px-8">
             <div className="w-full max-w-6xl text-center">
                 {/* Header */}
                 <div className={`mb-12 transition-all duration-1000 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
@@ -39,7 +39,13 @@ export default function Social() {
                                 className={`transition-all duration-700 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}
                                 style={{ transitionDelay: `${index * 150}ms` }}
                             >
-                                <a href={platform.link} className="group block text-center" aria-label={`Visit our ${platform.name} page`}>
+                                <a
+                                    href={platform.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="group block text-center"
+                                    aria-label={`Visit our ${platform.name} page`}
+                                >
                                     <div className="relative mb-3">
                                         <div
                                             className={`

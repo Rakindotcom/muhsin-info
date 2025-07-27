@@ -1,4 +1,6 @@
 import React from "react"
+import { useState, useEffect } from "react"
+import { Link, NavLink } from "react-router-dom"
 import { Badge } from "../Components/Badge"
 import { Button } from "../Components/Button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../Components/Card"
@@ -21,31 +23,51 @@ import Hero from "../Components/Hero"
 import { BookShowcase } from "../Components/BookShowcase"
 
 export default function Component() {
+
+    const [isScrolled, setIsScrolled] = useState(false)
+      const [mobileOpen, setMobileOpen] = useState(false)
+    
+      // Add shadow on scroll
+      useEffect(() => {
+        const onScroll = () => setIsScrolled(window.scrollY > 10)
+        window.addEventListener("scroll", onScroll)
+        return () => window.removeEventListener("scroll", onScroll)
+      }, [])
+    
+      // Scroll smoothly to footer with id 'contact'
+      const scrollToFooter = (e) => {
+        e.preventDefault()
+        const footer = document.getElementById("contact")
+        if (footer) {
+          footer.scrollIntoView({ behavior: "smooth" })
+          setMobileOpen(false)
+        }
+      }
+
     return (
         <div className="min-h-screen bg-gray-950 text-gray-100">
             <Hero />
             {/* Hero Section */}
-            <section className="relative mt-14 py-20 px-4 bg-gradient-to-br from-gray-900 via-gray-950 to-black">
-                <div className="max-w-4xl mx-auto text-center">
+            <section className="relative py-14 px-4 bg-gradient-to-br from-gray-900 via-gray-950 to-black">
+                <div className="max-w-4xl mx-auto text-center mb-16">
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 hover:cursor-pointer">
+                        <Button size="lg" onClick={() => window.open("https://academy.muhsinmashkur.com/", "_blank", "noopener,noreferrer")} className="bg-emerald-400 hover:bg-emerald-600 hover:scale-105 hover:cursor-pointer">
                             <BookOpen className="w-5 h-5 mr-2" />
                             View Courses
                         </Button>
                         <Button
                             size="lg"
                             variant="outline"
+                            onClick={() => window.open("https://academy.muhsinmashkur.com/dashboard/", "_blank", "noopener,noreferrer")}
                             className="bg-transparent border-gray-600 text-gray-300 hover:cursor-pointer"
                         >
                             <Users className="w-5 h-5 mr-2" />
-                            Join Academy
+                            Join Muhsin Maskur Academy
                         </Button>
                     </div>
                 </div>
-            </section>
 
             {/* Mission Statement */}
-            <section className="py-16 px-4 bg-gray-900/50">
                 <div className="max-w-4xl mx-auto text-center">
                     <div className="bg-gradient-to-r from-emerald-900/20 to-blue-900/20 rounded-2xl p-8 border border-gray-800">
                         <Quote className="w-12 h-12 text-emerald-400 mx-auto mb-4" />
@@ -67,7 +89,7 @@ export default function Component() {
                             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
                                 Enlightened Soul with Understanding Quran
                             </h2>
-                            <p className="text-gray-300 text-lg leading-relaxed mb-6">
+                            <p className="text-gray-300 text-lg leading-relaxed mb-6 text-justify w-[90%]">
                                 An Arabic educator, researcher, and course designer passionate about helping Bengali-speaking Muslims
                                 understand the Quran, Arabic language, and Islamic identity — simply, effectively, and impactfully.
                             </p>
@@ -96,12 +118,20 @@ export default function Component() {
                                 </CardHeader>
                                 <CardContent className="space-y-3 text-gray-300">
                                     <div>
+                                        <p className="font-semibold">Fellow</p>
+                                        <p className="text-sm text-gray-400">DDS, USA</p>
+                                    </div>
+                                    <div>
                                         <p className="font-semibold">Part-Time Lecturer</p>
-                                        <p className="text-sm text-gray-400">University of Dhaka (Since Dec 2022)</p>
+                                        <p className="text-sm text-gray-400">Institute of Modern Languages (IML), University of Dhaka</p>
                                     </div>
                                     <div>
                                         <p className="font-semibold">Adjunct Faculty</p>
-                                        <p className="text-sm text-gray-400">Islamic University of Technology (Since Jan 2020)</p>
+                                        <p className="text-sm text-gray-400">TVE, Islamic University of Technology (IUT- A subsidiary organ of OIC), Gazipur, Bangladesh</p>
+                                    </div>
+                                    <div>
+                                        <p className="font-semibold">Khateeb</p>
+                                        <p className="text-sm text-gray-400">Purba Kunipara G.M.G Jame Mosque, Tejgaon, Dhaka-1208</p>
                                     </div>
                                     <div>
                                         <p className="font-semibold">Founder & CEO</p>
@@ -197,6 +227,7 @@ export default function Component() {
                     <div className="grid md:grid-cols-2 gap-4">
                         {[
                             "Teaching Arabic as a Foreign Language (TAFL)",
+                            "Qur'an Arabic for General Learners",
                             "Teaching Arabic to Non-Native Speakers",
                             "Teaching Spoken Arabic (MSA)",
                             "Environment and Technology",
@@ -216,7 +247,7 @@ export default function Component() {
             {/* Services */}
             <section className="py-16 px-4 bg-gray-900/30">
                 <div className="max-w-6xl mx-auto">
-                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white">What I Do</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white">What We Do</h2>
                     <div className="grid md:grid-cols-3 gap-8">
                         <Card className="bg-gray-900 border-gray-800 hover:border-emerald-800 transition-all hover:scale-105">
                             <CardHeader>
@@ -231,6 +262,7 @@ export default function Component() {
                                 </p>
                                 <Button
                                     variant="outline"
+                                    onClick={() => window.open("https://academy.muhsinmashkur.com/", "_blank", "noopener,noreferrer")}
                                     className="bg-transparent border-emerald-600 text-emerald-400 hover:bg-emerald-950"
                                 >
                                     Learn More
@@ -251,6 +283,7 @@ export default function Component() {
                                 </p>
                                 <Button
                                     variant="outline"
+                                    onClick={() => window.open("https://academy.muhsinmashkur.com/", "_blank", "noopener,noreferrer")}
                                     className="bg-transparent border-emerald-600 text-emerald-400 hover:bg-emerald-950"
                                 >
                                     Start Learning
@@ -271,6 +304,7 @@ export default function Component() {
                                 </p>
                                 <Button
                                     variant="outline"
+                                    onClick={scrollToFooter}
                                     className="bg-transparent border-emerald-600 text-emerald-400 hover:bg-emerald-950"
                                 >
                                     Collaborate
@@ -282,7 +316,8 @@ export default function Component() {
             </section>
 
             <section className="py-16 px-4 bg-gray-800/30">
-            <BookShowcase />
+                <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 text-white">Our Books</h2>
+                <BookShowcase />
             </section>
             
             {/* Testimonials */}
@@ -353,6 +388,7 @@ export default function Component() {
                     <div className="text-center mt-8">
                         <Button
                             variant="outline"
+                            onClick={() => window.open("https://academy.muhsinmashkur.com/blog/", "_blank", "noopener,noreferrer")}
                             className="bg-transparent border-emerald-600 text-emerald-400 hover:bg-emerald-950"
                         >
                             Visit Blog <ArrowRight className="w-4 h-4 ml-2" />

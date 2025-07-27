@@ -5,6 +5,7 @@ import Home from './Pages/Home'
 import { Route, Routes } from 'react-router-dom'
 import NotFoundPage from './Pages/404'
 import ConsultancyPage from './Pages/ConsultancyPage';
+import Media from './Pages/Media';
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/consultancy" element={<ConsultancyPage />} />
+        <Route path="/media" element={<Media />} />
         
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

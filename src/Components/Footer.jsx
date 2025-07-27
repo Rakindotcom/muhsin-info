@@ -244,7 +244,8 @@ const Footer = () => {
                     {[
                       "muhsin.du@gmail.com",
                       "mohsin.tve@iut-dhaka.edu",
-                      "official@muhsinmashkur.com",
+                      "support@muhsinmashkur.com",
+                      "support@academy.muhsinmashkur.com",
                     ].map((email) => (
                       <li key={email}>
                         <a
@@ -311,10 +312,9 @@ const Footer = () => {
               className="mt-10 flex flex-wrap gap-4 items-center"
             >
               {[
-                { Icon: Facebook, url: "https://www.facebook.com/MuhsinMashkur" },
+                { Icon: Facebook, url: "https://www.facebook.com/ustazmuhsinmashkur" },
                 { Icon: Youtube, url: "https://www.youtube.com/@muhsinmashkur" },
                 { Icon: Twitter, url: "https://twitter.com/muhsinmashkur" },
-                { Icon: Instagram, url: "https://www.instagram.com/muhsinmashkur/" },
                 { Icon: Linkedin, url: "https://www.linkedin.com/in/muhsinmashkur" },
               ].map(({ Icon, url }, i) => (
                 <motion.a
