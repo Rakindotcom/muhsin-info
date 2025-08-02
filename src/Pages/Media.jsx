@@ -1,6 +1,5 @@
-"use client"
-
 import { useState } from "react"
+import ImageGallery from "../Components/ImageGallary.jsx";
 
 const videos = [
   {
@@ -58,13 +57,11 @@ const Media = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800">
-      {/* Bigger Hero Section - No text, just space and subtle background */}
-      {/* Minimal Hero Section */}
       <div className="text-center py-10 border-b-4 border-gray-500">
         <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">
-          Video Gallery
+          Gallery
         </h1>
-        <p className="text-gray-400 text-lg">Curated collection of amazing content</p>
+        <p className="text-gray-400 text-lg">Curated collection of amazing visuals</p>
       </div>
 
       <div className="h-32 bg-gradient-to-b from-gray-800/30 to-transparent"></div>
@@ -98,20 +95,18 @@ const Media = () => {
                   <div key={video.id}>
                     <div
                       onClick={() => setSelectedVideo(video)}
-                      className={`group cursor-pointer rounded-xl overflow-hidden transition-all duration-300 ${
-                        selectedVideo.id === video.id
+                      className={`group cursor-pointer rounded-xl overflow-hidden transition-all duration-300 ${selectedVideo.id === video.id
                           ? "bg-gradient-to-r from-purple-600/20 to-pink-600/20"
                           : "hover:bg-gray-800/50 hover:scale-105"
-                      }`}
+                        }`}
                     >
                       <div className="flex items-center space-x-3 p-3">
                         {/* Video Number */}
                         <div
-                          className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${
-                            selectedVideo.id === video.id
+                          className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${selectedVideo.id === video.id
                               ? "bg-gradient-to-r from-purple-500 to-pink-500 text-white"
                               : "bg-gray-700 text-gray-300 group-hover:bg-gray-600"
-                          }`}
+                            }`}
                         >
                           {index + 1}
                         </div>
@@ -136,9 +131,8 @@ const Media = () => {
                         {/* Video Info */}
                         <div className="flex-1 min-w-0">
                           <h4
-                            className={`font-medium text-sm truncate ${
-                              selectedVideo.id === video.id ? "text-white" : "text-gray-300 group-hover:text-white"
-                            }`}
+                            className={`font-medium text-sm truncate ${selectedVideo.id === video.id ? "text-white" : "text-gray-300 group-hover:text-white"
+                              }`}
                           >
                             {video.title}
                           </h4>
@@ -172,7 +166,7 @@ const Media = () => {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         .custom-scrollbar::-webkit-scrollbar {
           width: 8px;
         }
@@ -194,7 +188,12 @@ const Media = () => {
           background: rgba(17, 24, 39, 0.5);
         }
       `}</style>
+
+      <ImageGallery />
+
     </div>
+    
+
   )
 }
 

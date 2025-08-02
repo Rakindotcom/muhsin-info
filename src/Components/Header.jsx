@@ -55,17 +55,16 @@ export default function Header() {
             <div className="flex items-center space-x-2 ml-6">
               <button
                 onClick={scrollToFooter}
-                className="bg-emerald-400 hover:bg-emerald-500 text-slate-900 px-4 py-2 rounded-full font-semibold transition"
+                className="bg-emerald-400 hover:cursor-pointer hover:bg-emerald-500 text-slate-900 px-4 py-2 rounded-full font-semibold transition"
               >
                 HIRE FOR A SESSION
               </button>
               <div className="w-px h-6 bg-white opacity-30 mx-2" />
-              <Link
-                to="/class"
-                className="bg-yellow-400 hover:bg-yellow-500 text-slate-900 px-4 py-2 rounded-full font-semibold transition"
-              >
+              <button
+                onClick={() => window.open("https://calendly.com/muhsin-du/30min", "_blank")}
+                className="bg-yellow-400 text-slate-900 px-4 py-2 rounded-full text-center font-semibold">
                 ONE TO ONE CLASS
-              </Link>
+              </button>
             </div>
           </nav>
 
@@ -117,9 +116,11 @@ export default function Header() {
             >
               HIRE FOR A SESSION
             </button>
-            <Link to="/class" className="bg-yellow-400 text-slate-900 px-4 py-2 rounded-full text-center font-semibold">
+            <button
+              onClick={() => window.open("https://calendly.com/muhsin-du/30min", "_blank")}
+              className="bg-yellow-400 text-slate-900 px-4 py-2 rounded-full text-center font-semibold">
               ONE TO ONE CLASS
-            </Link>
+            </button>
           </div>
         </div>
       )}

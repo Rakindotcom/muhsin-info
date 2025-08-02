@@ -4,8 +4,10 @@ import { Button } from "../Components/Button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../Components/Card"
 import Social from "../Components/Social"
 import TypewriterHeading from "../Components/Typewriter"
+import { motion } from "framer-motion";
 
 import {
+  Calendar, Clock, MessageSquareHeart,
   BookOpen,
   GraduationCap,
   Users,
@@ -18,6 +20,33 @@ import {
   MapPin,
   ExternalLink,
 } from "lucide-react";
+
+const steps = [
+  {
+    title: "Healing Homes with Faith & Wisdom",
+    content:
+      "Helping couples and families build harmony, resolve conflicts, and strengthen emotional bonds by combining Islamic guidance with insights from contemporary counselling practices — without clinical therapy.",
+  },
+  {
+    title: "Islamic Personal Mentorship — Faithful Living with Purpose",
+    content: `Real-life struggles. Qur’anic solutions — break free, reconnect, transform.
+
+For young minds and busy professionals seeking to rethink their lifestyle and leave behind haram habits like illicit relationships, addictions, or spiritual confusion — we offer one-on-one faith-based mentorship that is practical, non-judgmental, and deeply rooted in Qur’anic wisdom and Prophetic guidance.
+
+Whether you're seeking clarity in a world full of distractions or trying to build a stronger connection with Allah — this is your space for growth, healing, and realignment.
+
+Struggling with addiction, confusion, or emotional lows? Caught between modern chaos and spiritual emptiness?
+
+We help you reconnect with the deeper purpose of life through Islamic wisdom, real conversations, and personalized support — all rooted in the Qur’an and Sunnah.
+
+This is for anyone — student, executive, or parent — who wants to live with clarity, self-control, and faith.`,
+  },
+  {
+    title: "Personal Career Counselling",
+    content:
+      "Find your purpose and build a Halal career.\n\nWhether you're a Madrasah graduate exploring new opportunities or a university student seeking a career aligned with Islamic values — our one-on-one sessions help you discover your strengths, clarify your goals, and plan a career that is both meaningful and Halal.",
+  },
+];
 
 export default function ConsultancyPage() {
   return (
@@ -53,6 +82,26 @@ export default function ConsultancyPage() {
             </Button>
           </div>
         </div>
+      </section>
+
+      <section className="max-w-5xl mx-auto px-4 py-16 space-y-12">
+        {steps.map((step, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: index * 0.2 }}
+            viewport={{ once: true }}
+            className="bg-white/5 border border-white/10 rounded-2xl p-6 md:p-10 text-white shadow-xl backdrop-blur"
+          >
+            <h3 className="text-2xl md:text-3xl font-semibold mb-4 text-emerald-300 leading-snug">
+              {step.title}
+            </h3>
+            <p className="text-gray-200 whitespace-pre-line text-justify leading-relaxed">
+              {step.content}
+            </p>
+          </motion.div>
+        ))}
       </section>
 
       {/* About Section */}
@@ -149,142 +198,179 @@ export default function ConsultancyPage() {
 
       {/* Consultation Options */}
       <section className="py-16 px-4 bg-gray-900/30">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Consultation Options</h2>
-          <p className="text-gray-400 text-lg">Choose the perfect session for your needs</p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          {/* Quick Advice Card */}
-          <Card className="bg-gradient-to-br from-emerald-900/20 to-blue-900/20 border-emerald-800 relative">
-            <CardHeader>
-              <CardTitle className="text-emerald-400 flex items-center text-xl">Get Quick Advice – 30 min</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              <div className="text-3xl font-bold text-emerald-400">৳990</div>
-              <div className="text-gray-300">
-                <p className="font-semibold">30-minute focused session</p>
-                <p className="text-sm text-gray-400 mt-2">For quick insight or urgent concerns</p>
-              </div>
-              <div className="space-y-2">
-                <div className="flex items-center text-emerald-400 text-sm">
-                  <span>Targeted guidance</span>
-                </div>
-                <div className="flex items-center text-emerald-400 text-sm">
-                  <span>Quick solutions</span>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Deep Session Card */}
-          <Card className="bg-gradient-to-br from-blue-900/20 to-purple-900/20 border-blue-800 relative">
-            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-              <Badge className="bg-blue-600 text-white">Most Popular</Badge>
-            </div>
-            <CardHeader>
-              <CardTitle className="text-blue-400 flex items-center text-xl">Go Deep – 60 min Session</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              <div className="text-3xl font-bold text-blue-400">৳1500 - ৳2000</div>
-              <div className="text-gray-300">
-                <p className="font-semibold">Full hour of in-depth guidance</p>
-                <p className="text-sm text-gray-400 mt-2">Deep, transformational sessions</p>
-              </div>
-              <div className="space-y-2">
-                <div className="flex items-center text-blue-400 text-sm">
-                  <span>Comprehensive analysis</span>
-                </div>
-                <div className="flex items-center text-blue-400 text-sm">
-                  <span>Detailed action plan</span>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Monthly Support Plan Card */}
-          <Card className="bg-gradient-to-br from-purple-900/20 to-pink-900/20 border-purple-800 relative">
-            <CardHeader>
-              <CardTitle className="text-purple-400 flex items-center text-xl">Monthly Support Plan</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              <div className="text-3xl font-bold text-purple-400">From ৳7,500</div>
-              <div className="text-gray-300">
-                <p className="font-semibold">4 sessions per month</p>
-                <p className="text-sm text-gray-400 mt-2">For couples/families wanting consistent change</p>
-              </div>
-              <div className="space-y-2">
-                <div className="flex items-center text-purple-400 text-sm">
-                  <span>Ongoing support</span>
-                </div>
-                <div className="flex items-center text-purple-400 text-sm">
-                  <span>Tailored strategies</span>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-        <div className="text-center">
-          <Button
-            size="lg"
-            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white"
-            onClick={() => window.open("https://calendly.com/muhsin-du/30min", "_blank")}
-          >
-            Check Availability
-          </Button>
-        </div>
-      </div>
-    </section>
-
-      {/* Upcoming Programs */}
-      <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Upcoming Seminars & Programmes</h2>
-            <p className="text-gray-400 text-lg">Join our transformative workshops and courses</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Consultation Options</h2>
+            <p className="text-gray-400 text-lg">Choose the perfect session for your needs</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="bg-gray-900 border-gray-800 hover:border-emerald-800 transition-colors">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            {/* Quick Advice Card */}
+            <Card className="bg-gradient-to-br from-emerald-900/20 to-blue-900/20 border-emerald-800 relative">
               <CardHeader>
-                <div className="flex items-center justify-between mb-2">
-                  <Badge className="bg-emerald-600 text-white">12 July</Badge>
-
-                </div>
-                <CardTitle className="text-emerald-400 text-lg">Healthy Marriages in Modern Times</CardTitle>
+                <CardTitle className="text-emerald-400 flex items-center text-xl">Get Quick Advice – 30 min</CardTitle>
               </CardHeader>
-              <CardContent>
-                <p className="text-gray-300">Three-hour interactive workshop with practical exercises.</p>
+              <CardContent className="space-y-3">
+                <div className="text-3xl font-bold text-emerald-400">৳990</div>
+                <div className="text-gray-300">
+                  <p className="font-semibold">30-minute focused session</p>
+                  <p className="text-sm text-gray-400 mt-2">For quick insight or urgent concerns</p>
+                </div>
+                <div className="space-y-2">
+                  <div className="flex items-center text-emerald-400 text-sm">
+                    <span>Targeted guidance</span>
+                  </div>
+                  <div className="flex items-center text-emerald-400 text-sm">
+                    <span>Quick solutions</span>
+                  </div>
+                </div>
               </CardContent>
             </Card>
 
-            <Card className="bg-gray-900 border-gray-800 hover:border-blue-800 transition-colors">
+            {/* Deep Session Card */}
+            <Card className="bg-gradient-to-br from-blue-900/20 to-purple-900/20 border-blue-800 relative">
+              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                <Badge className="bg-blue-600 text-white">Most Popular</Badge>
+              </div>
               <CardHeader>
-                <div className="flex items-center justify-between mb-2">
-                  <Badge className="bg-blue-600 text-white">28 July</Badge>
-                  <Users className="w-5 h-5 text-blue-400" />
-                </div>
-                <CardTitle className="text-blue-400 text-lg">Positive Parenting in Islam</CardTitle>
+                <CardTitle className="text-blue-400 flex items-center text-xl">Go Deep – 60 min Session</CardTitle>
               </CardHeader>
-              <CardContent>
-                <p className="text-gray-300">Effective discipline strategies based on prophetic teachings.</p>
+              <CardContent className="space-y-3">
+                <div className="text-3xl font-bold text-blue-400">৳1500 - ৳2000</div>
+                <div className="text-gray-300">
+                  <p className="font-semibold">Full hour of in-depth guidance</p>
+                  <p className="text-sm text-gray-400 mt-2">Deep, transformational sessions</p>
+                </div>
+                <div className="space-y-2">
+                  <div className="flex items-center text-blue-400 text-sm">
+                    <span>Comprehensive analysis</span>
+                  </div>
+                  <div className="flex items-center text-blue-400 text-sm">
+                    <span>Detailed action plan</span>
+                  </div>
+                </div>
               </CardContent>
             </Card>
 
-            <Card className="bg-gray-900 border-gray-800 hover:border-purple-800 transition-colors">
+            {/* Monthly Support Plan Card */}
+            <Card className="bg-gradient-to-br from-purple-900/20 to-pink-900/20 border-purple-800 relative">
               <CardHeader>
-                <div className="flex items-center justify-between mb-2">
-                  <Badge className="bg-purple-600 text-white">10 August</Badge>
-                  <Heart className="w-5 h-5 text-purple-400" />
-                </div>
-                <CardTitle className="text-purple-400 text-lg">Pre-Marriage Course</CardTitle>
+                <CardTitle className="text-purple-400 flex items-center text-xl">Monthly Support Plan</CardTitle>
               </CardHeader>
-              <CardContent>
-                <p className="text-gray-300">Four weekly sessions covering all aspects of Islamic marriage.</p>
+              <CardContent className="space-y-3">
+                <div className="text-3xl font-bold text-purple-400">From ৳7,500</div>
+                <div className="text-gray-300">
+                  <p className="font-semibold">4 sessions per month</p>
+                  <p className="text-sm text-gray-400 mt-2">For couples/families wanting consistent change</p>
+                </div>
+                <div className="space-y-2">
+                  <div className="flex items-center text-purple-400 text-sm">
+                    <span>Ongoing support</span>
+                  </div>
+                  <div className="flex items-center text-purple-400 text-sm">
+                    <span>Tailored strategies</span>
+                  </div>
+                </div>
               </CardContent>
             </Card>
+          </div>
+          <div className="text-center">
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white"
+              onClick={() => window.open("https://calendly.com/muhsin-du/30min", "_blank")}
+            >
+              Check Availability
+            </Button>
           </div>
         </div>
       </section>
+
+      <section className="py-16 px-4 bg-gray-950">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+            Friday Special Talks & Counselling Sessions
+          </h2>
+          <p className="text-gray-400 text-lg">
+            After Jumu'ah Prayer · Open to All · Practical & Purpose-Driven
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {/* Talk 1 */}
+          <Card className="bg-gray-900 border-gray-800 hover:border-emerald-700 transition-colors">
+            <CardHeader>
+              <div className="flex items-center justify-between mb-2">
+                <Badge className="bg-emerald-600 text-white">8 Nov</Badge>
+                <Calendar className="w-5 h-5 text-emerald-400" />
+              </div>
+              <CardTitle className="text-emerald-400 text-lg leading-snug">
+                Crafting Your Career with Faith
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="text-sm text-gray-300 space-y-2 text-justify">
+              <p className="flex items-center gap-2 text-emerald-300">
+                <Clock className="w-4 h-4" /> After Jumu’ah Prayer (1:30 PM approx.)
+              </p>
+              <p className="flex items-center gap-2 text-emerald-200">
+                <Users className="w-4 h-4" /> Students & Young Professionals
+              </p>
+              <p>
+                A motivational session exploring how Islamic principles can guide you in choosing and thriving in a career aligned with purpose and barakah.
+              </p>
+            </CardContent>
+          </Card>
+
+          {/* Talk 2 */}
+          <Card className="bg-gray-900 border-gray-800 hover:border-blue-700 transition-colors">
+            <CardHeader>
+              <div className="flex items-center justify-between mb-2">
+                <Badge className="bg-blue-600 text-white">22 Nov</Badge>
+                <MessageSquareHeart className="w-5 h-5 text-blue-400" />
+              </div>
+              <CardTitle className="text-blue-400 text-lg leading-snug">
+                Healing the Self
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="text-sm text-gray-300 space-y-2 text-justify">
+              <p className="flex items-center gap-2 text-blue-300">
+                <Clock className="w-4 h-4" /> After Jumu’ah Prayer (1:30 PM approx.)
+              </p>
+              <p className="flex items-center gap-2 text-blue-200">
+                <Users className="w-4 h-4" /> Anyone facing emotional burden
+              </p>
+              <p>
+                A reflection session combining Islamic insights and practical frameworks to deal with emotional well-being and personal growth.
+              </p>
+            </CardContent>
+          </Card>
+
+          {/* Talk 3 */}
+          <Card className="bg-gray-900 border-gray-800 hover:border-purple-700 transition-colors">
+            <CardHeader>
+              <div className="flex items-center justify-between mb-2">
+                <Badge className="bg-purple-600 text-white">13 Dec</Badge>
+                <Users className="w-5 h-5 text-purple-400" />
+              </div>
+              <CardTitle className="text-purple-400 text-lg leading-snug">
+                Saving the Home
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="text-sm text-gray-300 space-y-2 text-justify">
+              <p className="flex items-center gap-2 text-purple-300">
+                <Clock className="w-4 h-4" /> After Jumu’ah Prayer (1:30 PM approx.)
+              </p>
+              <p className="flex items-center gap-2 text-purple-200">
+                <Users className="w-4 h-4" /> Couples, Parents, Family Leaders
+              </p>
+              <p>
+                A powerful session to rebuild harmony in the home using Islamic family values blended with practical counselling perspectives.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </section>
 
       {/* Resources Section */}
       <section className="py-16 px-4 bg-gray-900/30">

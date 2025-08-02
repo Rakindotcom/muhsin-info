@@ -195,6 +195,8 @@ export default function Component() {
       </div>
       <p className="text-gray-300 font-semibold mb-1">Department of Arabic, University of Dhaka</p>
       <p className="text-emerald-300 font-bold">C.G.P.A 3.98 (out of 4.00), 1st class 1st, 1st position in the faculty of Arts</p>
+      <p className="text-amber-300 font-bold">Secured the Prime Minister Gold Medal for achieving the Highest CGPA in the Faculty of Arts in 2014. 
+</p>
     </div>
 
     {/* Takmeel / Dawratul Hadith */}

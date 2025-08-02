@@ -6,23 +6,20 @@ import {
   Facebook,
   Youtube,
   Twitter,
-  Instagram,
   Linkedin,
   Send,
   User,
   FileText,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../firebase"; // adjust path if needed
 
-// Sparkle animation dot
 const Sparkle = ({ style }) => (
   <motion.span
     className="absolute rounded-full bg-emerald-400"
     style={{ width: 4, height: 4, ...style }}
-    animate={{
-      opacity: [0, 1, 0],
-      scale: [0.5, 1.5, 0.5],
-    }}
+    animate={{ opacity: [0, 1, 0], scale: [0.5, 1.5, 0.5] }}
     transition={{
       repeat: Infinity,
       duration: 2,
@@ -48,34 +45,36 @@ const Footer = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
+
+    try {
+      await addDoc(collection(db, "contactMessages"), {
+        ...formData,
+        timestamp: new Date().toISOString(),
+      });
       setIsSubmitting(false);
       setIsSubmitted(true);
       setTimeout(() => {
         setIsSubmitted(false);
         setFormData({ name: "", phone: "", subject: "", message: "" });
       }, 3000);
-    }, 1500);
+    } catch (error) {
+      console.error("Error sending message:", error);
+      alert("Something went wrong. Please try again.");
+      setIsSubmitting(false);
+    }
   };
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.2 },
-    },
+    visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
   };
 
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.5 },
-    },
+    visible: { y: 0, opacity: 1, transition: { duration: 0.5 } },
   };
 
   const socialVariants = {
@@ -83,11 +82,7 @@ const Footer = () => {
     visible: (i) => ({
       scale: 1,
       opacity: 1,
-      transition: {
-        delay: 0.3 + i * 0.1,
-        type: "spring",
-        stiffness: 120,
-      },
+      transition: { delay: 0.3 + i * 0.1, type: "spring", stiffness: 120 },
     }),
   };
 
@@ -119,9 +114,7 @@ const Footer = () => {
               Hire for a Session
             </h2>
             {[{ top: 0, left: 0 }, { top: 0, right: 0 }, { bottom: 0, left: "50%" }, { bottom: "50%", right: 0 }].map(
-              (pos, i) => (
-                <Sparkle key={i} style={{ ...pos, position: "absolute" }} />
-              )
+              (pos, i) => <Sparkle key={i} style={{ ...pos, position: "absolute" }} />
             )}
           </div>
           <div className="w-24 h-1 bg-emerald-400 mx-auto mt-6 rounded-full"></div>
@@ -153,8 +146,8 @@ const Footer = () => {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 {[{ name: "name", placeholder: "Your Name", Icon: User },
-                { name: "phone", placeholder: "Your Phone Number", Icon: Phone },
-                { name: "subject", placeholder: "Your Subject", Icon: FileText }
+                  { name: "phone", placeholder: "Your Phone Number", Icon: Phone },
+                  { name: "subject", placeholder: "Your Subject", Icon: FileText }
                 ].map(({ name, placeholder, Icon }) => (
                   <motion.div key={name} variants={itemVariants} className="relative">
                     <Icon className="absolute left-4 top-1/2 -translate-y-1/2 text-emerald-400 w-5 h-5" />
@@ -185,9 +178,7 @@ const Footer = () => {
                 <motion.div variants={itemVariants}>
                   <button
                     className={`w-full py-4 rounded-lg font-semibold text-white
-                      ${isSubmitting
-                        ? "bg-emerald-700 cursor-not-allowed"
-                        : "bg-emerald-600 hover:bg-emerald-500"}
+                      ${isSubmitting ? "bg-emerald-700 cursor-not-allowed" : "bg-emerald-600 hover:bg-emerald-500"}
                       transition-colors duration-300 flex items-center justify-center gap-2
                       transform hover:-translate-y-1 hover:shadow-lg`}
                     type="submit"
@@ -226,93 +217,56 @@ const Footer = () => {
               Contact Info
             </motion.h3>
 
-            {/* Info Blocks */}
-            <div className="space-y-6">
-              {/* Email */}
-              <motion.div
-                variants={itemVariants}
-                className="flex items-start gap-5 bg-white/5 p-5 rounded-xl border border-white/10 hover:shadow-xl hover:border-emerald-500 transition-all"
-              >
-                <div className="flex-shrink-0">
-                  <div className="bg-emerald-600 p-3 rounded-full shadow-md">
-                    <Mail className="text-white w-5 h-5" />
-                  </div>
-                </div>
-                <div>
-                  <h4 className="text-lg font-semibold text-emerald-400">Email</h4>
-                  <ul className="text-gray-300 mt-1 space-y-1 text-sm">
-                    {[
-                      "muhsin.du@gmail.com",
-                      "mohsin.tve@iut-dhaka.edu",
-                      "support@muhsinmashkur.com",
-                      "support@academy.muhsinmashkur.com",
-                    ].map((email) => (
-                      <li key={email}>
-                        <a
-                          href={`mailto:${email}`}
-                          className="hover:text-white transition-colors"
-                        >
-                          {email}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </motion.div>
+            {/* Email */}
+            <motion.div variants={itemVariants} className="flex items-start gap-5 bg-white/5 p-5 rounded-xl border border-white/10 hover:shadow-xl hover:border-emerald-500 transition-all">
+              <div className="bg-emerald-600 p-3 rounded-full shadow-md">
+                <Mail className="text-white w-5 h-5" />
+              </div>
+              <div>
+                <h4 className="text-lg font-semibold text-emerald-400">Email</h4>
+                <ul className="text-gray-300 mt-1 space-y-1 text-sm">
+                  {["muhsin.du@gmail.com", "mohsin.tve@iut-dhaka.edu", "support@muhsinmashkur.com", "support@academy.muhsinmashkur.com"].map((email) => (
+                    <li key={email}>
+                      <a href={`mailto:${email}`} className="hover:text-white transition-colors">{email}</a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
 
-              {/* Phone */}
-              <motion.div
-                variants={itemVariants}
-                className="flex items-start gap-5 bg-white/5 p-5 rounded-xl border border-white/10 hover:shadow-xl hover:border-emerald-500 transition-all"
-              >
-                <div className="flex-shrink-0">
-                  <div className="bg-emerald-600 p-3 rounded-full shadow-md">
-                    <Phone className="text-white w-5 h-5" />
-                  </div>
-                </div>
-                <div>
-                  <h4 className="text-lg font-semibold text-emerald-400">Phone</h4>
-                  <ul className="text-gray-300 mt-1 space-y-1 text-sm">
-                    {["+88 01811-996981", "+88 01722-786745"].map((phone) => (
-                      <li key={phone}>
-                        <a
-                          href={`tel:${phone.replace(/[^+\d]/g, "")}`}
-                          className="hover:text-white transition-colors"
-                        >
-                          {phone}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </motion.div>
+            {/* Phone */}
+            <motion.div variants={itemVariants} className="flex items-start gap-5 bg-white/5 p-5 rounded-xl border border-white/10 hover:shadow-xl hover:border-emerald-500 transition-all">
+              <div className="bg-emerald-600 p-3 rounded-full shadow-md">
+                <Phone className="text-white w-5 h-5" />
+              </div>
+              <div>
+                <h4 className="text-lg font-semibold text-emerald-400">Phone</h4>
+                <ul className="text-gray-300 mt-1 space-y-1 text-sm">
+                  {["+88 01811-996981", "+88 01722-786745"].map((phone) => (
+                    <li key={phone}>
+                      <a href={`tel:${phone.replace(/[^+\d]/g, "")}`} className="hover:text-white transition-colors">{phone}</a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
 
-              {/* Address */}
-              <motion.div
-                variants={itemVariants}
-                className="flex items-start gap-5 bg-white/5 p-5 rounded-xl border border-white/10 hover:shadow-xl hover:border-emerald-500 transition-all"
-              >
-                <div className="flex-shrink-0">
-                  <div className="bg-emerald-600 p-3 rounded-full shadow-md">
-                    <MapPin className="text-white w-5 h-5" />
-                  </div>
-                </div>
-                <div>
-                  <h4 className="text-lg font-semibold text-emerald-400">Address</h4>
-                  <p className="text-gray-300 mt-1 text-sm leading-relaxed max-w-sm">
-                    465/18 West Rampura, Bandhu Nibash Residential Area, Hatirjheel, Dhaka.
-                  </p>
-                </div>
-              </motion.div>
-            </div>
+            {/* Address */}
+            <motion.div variants={itemVariants} className="flex items-start gap-5 bg-white/5 p-5 rounded-xl border border-white/10 hover:shadow-xl hover:border-emerald-500 transition-all">
+              <div className="bg-emerald-600 p-3 rounded-full shadow-md">
+                <MapPin className="text-white w-5 h-5" />
+              </div>
+              <div>
+                <h4 className="text-lg font-semibold text-emerald-400">Address</h4>
+                <p className="text-gray-300 mt-1 text-sm leading-relaxed max-w-sm">
+                  465/18 West Rampura, Bandhu Nibash Residential Area, Hatirjheel, Dhaka.
+                </p>
+              </div>
+            </motion.div>
 
-            {/* Social Icons */}
-            <motion.div
-              variants={itemVariants}
-              className="mt-10 flex flex-wrap gap-4 items-center"
-            >
-              {[
-                { Icon: Facebook, url: "https://www.facebook.com/ustazmuhsinmashkur" },
+            {/* Social */}
+            <motion.div variants={itemVariants} className="mt-10 flex flex-wrap gap-4 items-center">
+              {[{ Icon: Facebook, url: "https://www.facebook.com/ustazmuhsinmashkur" },
                 { Icon: Youtube, url: "https://www.youtube.com/@muhsinmashkur" },
                 { Icon: Twitter, url: "https://twitter.com/muhsinmashkur" },
                 { Icon: Linkedin, url: "https://www.linkedin.com/in/muhsinmashkur" },
@@ -335,6 +289,7 @@ const Footer = () => {
                 </motion.a>
               ))}
             </motion.div>
+
             <motion.footer
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -349,7 +304,6 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-semibold text-teal-600 hover:text-teal-800 cursor-pointer transition-colors underline"
-                  title="Rakin Al Shahriar LinkedIn"
                 >
                   Rakin Al Shahriar
                 </a>
