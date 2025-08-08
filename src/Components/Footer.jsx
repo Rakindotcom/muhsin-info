@@ -13,7 +13,9 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { collection, addDoc } from "firebase/firestore";
-import { db } from "../firebase"; // adjust path if needed
+import { db } from "../firebase";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Sparkle = ({ style }) => (
   <motion.span
@@ -62,7 +64,7 @@ const Footer = () => {
       }, 3000);
     } catch (error) {
       console.error("Error sending message:", error);
-      alert("Something went wrong. Please try again.");
+      toast.error("Something went wrong. Please try again.");
       setIsSubmitting(false);
     }
   };
@@ -99,6 +101,11 @@ const Footer = () => {
     >
       <div className="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
       <div className="container mx-auto relative z-10 px-6 md:px-12 lg:px-24">
+        {/* Toast container */}
+        <ToastContainer position="top-center" autoClose={3000} />
+
+        {/* ...rest of your UI unchanged */}
+
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
