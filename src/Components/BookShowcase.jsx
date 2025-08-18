@@ -18,7 +18,7 @@ export function BookShowcase() {
   }
 
   return (
-    <div className="max-w-6xl mx-auto p-6">
+    <div className="max-w-6xl mx-auto px-2 py-6">
       <div className="bg-gray-900 rounded-2xl border border-gray-800 overflow-hidden shadow-2xl">
         <div className="grid md:grid-cols-2 gap-8 p-8">
           {/* Left Side - Book Image */}
