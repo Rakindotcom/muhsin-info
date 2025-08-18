@@ -1,117 +1,100 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
-
-const FOLDER_TITLES = {
-  "conference_at_iml_du": "IML DU Conference Participation",
-  "duke_divinity_school_north_carolina_united_states_of_america": "Duke Divinity School Visit",
-  "iftar_mahfeel_presentation_at_sheraton_dhaka": "Sheraton Iftar Mahfeel Presentation",
-  "malysia_pham2024": "Malaysia PHAM 2024 Event",
-  "research_workshops_activities_at_iut-oic": "IUT-OIC Research Workshops",
-  "special_images": "Special Moments Collection",
-  "television_program": "Television Program Appearance",
-  "university_out-of-classroom_activities": "University Extracurricular Activities",
-  "worked_as_an_instructor_at_iut-oic_of_the_spoken_arabic_language_course": "IUT-OIC Arabic Instructor"
-};
-
-const FOLDER_ORDER = [
-  "duke_divinity_school_north_carolina_united_states_of_america",
-  "conference_at_iml_du",
-  "iftar_mahfeel_presentation_at_sheraton_dhaka",
-  "malysia_pham2024",
-  "research_workshops_activities_at_iut-oic",
-  "worked_as_an_instructor_at_iut-oic_of_the_spoken_arabic_language_course",
-  "television_program",
-  "university_out-of-classroom_activities",
-  "special_images"
+const sections = [
+  {
+    title: "Duke Divinity School Visit",
+    images: Array.from({ length: 37 }, (_, i) => `${i + 1}.webp`)
+  },
+  {
+    title: "IML DU Conference Participation",
+    images: ["a.webp", "b.webp", "c.webp", "d.webp"]
+  },
+  {
+    title: "Sheraton Iftar Mahfeel Presentation",
+    images: ["aa.webp", "ab.webp", "ac.webp", "ad.webp"]
+  },
+  {
+    title: "Malaysia PHAM 2024 Event",
+    images: ["a1.webp","b1.webp","c1.webp","d1.webp","e1.webp","f1.webp","g1.webp","h1.webp"]
+  },
+  {
+    title: "IUT-OIC Research Workshops",
+    images: Array.from({ length: 12 }, (_, i) => `aa${i + 1}.webp`)
+  },
+  {
+    title: "University Extracurricular Activities",
+    images: ["c2a.webp","c3a.webp","c4a.webp","c5a.webp","c6a.webp","c7a.webp"]
+  },
+  {
+    title: "Television Program Appearance",
+    images: Array.from({ length: 12 }, (_, i) => `b${i + 1}b.webp`)
+  },
+  {
+    title: "IUT-OIC Arabic Instructor",
+    images: Array.from({ length: 35 }, (_, i) => `1a${i + 1}.webp`)
+  },
+  {
+    title: "Special Moments Collection",
+    images: Array.from({ length: 8 }, (_, i) => `a${i + 1}a.webp`)
+  }
 ];
 
-export default function ImageGallery() {
-  const [sections, setSections] = useState([]);
-  const [loading, setLoading] = useState(true);
+const IMAGES_PER_BATCH = 8;
 
-  useEffect(() => {
-    const importImages = async () => {
-      try {
-        const images = import.meta.glob(
-          "../web_images/**/*.{jpg,jpeg,png,gif,webp,JPG,JPEG,PNG,GIF,WEBP}",
-          { query: "?url", import: "default" }
-        );
+const ImageGallery = () => {
+  const [visibleCount, setVisibleCount] = useState(
+    sections.map(() => IMAGES_PER_BATCH)
+  );
 
-        const entries = Object.entries(images);
-        const folderGroups = {};
-        const detectedFolders = new Set();
-
-        for (const [path, resolver] of entries) {
-          const url = await resolver();
-          
-          // Extract folder path relative to web_images
-          const folderPath = path
-            .replace(/^\.\.\/web_images\//, '')  // Remove prefix
-            .split('/')
-            .slice(0, -1)  // Remove filename
-            .join('/');
-          
-          if (folderPath) {
-            if (!folderGroups[folderPath]) folderGroups[folderPath] = [];
-            folderGroups[folderPath].push(url);
-            detectedFolders.add(folderPath);
-          }
-        }
-
-       
-
-
-        // Create sections with automatic titles
-        const folderNames = FOLDER_ORDER.length > 0 
-          ? FOLDER_ORDER 
-          : Array.from(detectedFolders).sort();
-
-        const processedSections = folderNames.map(folderPath => ({
-          folderPath,
-          title: FOLDER_TITLES[folderPath] || folderPath.replace(/\//g, ' › '),
-          images: folderGroups[folderPath] || []
-        })).filter(section => section.images.length > 0);
-
-        setSections(processedSections);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error loading images:", error);
-        setLoading(false);
-      }
-    };
-
-    importImages();
-  }, []);
-
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center min-h-screen">
-        <p className="text-lg text-gray-600">Loading images...</p>
-      </div>
-    );
-  }
+  const handleLoadMore = (index) => {
+    setVisibleCount((prev) => {
+      const newCount = [...prev];
+      newCount[index] = Math.min(
+        sections[index].images.length,
+        newCount[index] + IMAGES_PER_BATCH
+      );
+      return newCount;
+    });
+  };
 
   return (
     <div className="min-h-screen bg-white py-8 px-4">
-      {sections.map((section) => (
-        <div key={section.folderPath} className="mb-12">
+      {sections.map((section, index) => (
+        <div key={section.title} className="mb-12">
           <h2 className="text-3xl text-center font-bold text-blue-900 mb-4 px-2 border-b pb-2">
             {section.title}
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {section.images.map((url) => (
-              <div key={url} className="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
+          <div className="flex space-x-4 overflow-x-auto pb-2">
+            {section.images.slice(0, visibleCount[index]).map((url) => (
+              <div
+                key={url}
+                className="flex-shrink-0 overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300"
+              >
                 <img
                   src={url}
-                  alt=""
+                  alt={section.title}
                   className="w-full h-56 object-cover"
                   loading="lazy"
                 />
               </div>
             ))}
           </div>
+
+          {visibleCount[index] < section.images.length && (
+            <div className="flex justify-center mt-6">
+              <button
+                onClick={() => handleLoadMore(index)}
+                className="relative px-6 py-3 font-bold text-white rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 shadow-lg hover:scale-105 transform transition-all duration-300"
+              >
+                <span className="absolute inset-0 bg-white opacity-0 rounded-full transition duration-300 group-hover:opacity-10"></span>
+                Load More
+              </button>
+            </div>
+          )}
         </div>
       ))}
     </div>
   );
-}
+};
+
+export default ImageGallery;
