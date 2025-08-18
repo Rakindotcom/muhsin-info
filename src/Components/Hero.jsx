@@ -14,12 +14,6 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20"></div>
       </div>
 
-      {/* Mobile badge at top-left */}
-      <div className="absolute top-6 left-6 z-20 lg:hidden inline-flex items-center rounded-full bg-white/10 backdrop-blur-sm px-4 py-2 border border-white/20">
-        <div className="h-2 w-2 rounded-full bg-emerald-400 mr-2"></div>
-        <span className="text-sm font-medium text-white/90">Qur'anic Scholar & Speaker</span>
-      </div>
-
       {/* Content */}
       <div className="relative z-10 flex min-h-screen items-center">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
