@@ -15,7 +15,7 @@ const sections = [
   },
   {
     title: "Malaysia PHAM 2024 Event",
-    images: ["a1.webp","b1.webp","c1.webp","d1.webp","e1.webp","f1.webp","g1.webp","h1.webp"]
+    images: ["a1.webp", "b1.webp", "c1.webp", "d1.webp", "e1.webp", "f1.webp", "g1.webp", "h1.webp"]
   },
   {
     title: "IUT-OIC Research Workshops",
@@ -23,7 +23,7 @@ const sections = [
   },
   {
     title: "University Extracurricular Activities",
-    images: ["c2a.webp","c3a.webp","c4a.webp","c5a.webp","c6a.webp","c7a.webp"]
+    images: ["c2a.webp", "c3a.webp", "c4a.webp", "c5a.webp", "c6a.webp", "c7a.webp"]
   },
   {
     title: "Television Program Appearance",
@@ -64,11 +64,11 @@ const ImageGallery = () => {
           <h2 className="text-3xl text-center font-bold text-blue-900 mb-4 px-2 border-b pb-2">
             {section.title}
           </h2>
-          <div className="flex space-x-4 overflow-x-auto pb-2">
+          <div className="flex space-x-4 overflow-x-auto pb-2 dark-scrollbar">
             {section.images.slice(0, visibleCount[index]).map((url) => (
               <div
                 key={url}
-                className="flex-shrink-0 overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300"
+                className="flex-shrink-0 w-84 overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300"
               >
                 <img
                   src={url}
@@ -80,13 +80,17 @@ const ImageGallery = () => {
             ))}
           </div>
 
+
           {visibleCount[index] < section.images.length && (
             <div className="flex justify-center mt-6">
               <button
                 onClick={() => handleLoadMore(index)}
-                className="relative px-6 py-3 font-bold text-white rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 shadow-lg hover:scale-105 transform transition-all duration-300"
+                className="relative px-6 py-3 font-bold text-white rounded-full bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 shadow-lg 
+             hover:scale-105 transform transition-all duration-300 overflow-hidden group"
               >
-                <span className="absolute inset-0 bg-white opacity-0 rounded-full transition duration-300 group-hover:opacity-10"></span>
+                {/* Animated shine effect */}
+                <span className="absolute top-0 left-[-75%] w-64 h-full bg-white opacity-20 rotate-12 transform translate-x-0 
+                   group-hover:animate-shine"></span>
                 Load More
               </button>
             </div>

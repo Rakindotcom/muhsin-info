@@ -83,3 +83,33 @@ body, html {
     transform: translateY(0);
   }
 }
+
+
+ @keyframes shine {
+    0% { transform: translateX(-75%) rotate(12deg); }
+    100% { transform: translateX(150%) rotate(12deg); }
+  }
+
+  .animate-shine {
+    animation: shine 1s ease-in-out;
+  }
+
+ /* Add this to your global CSS or a <style> tag */
+.dark-scrollbar::-webkit-scrollbar {
+  height: 8px; /* horizontal scrollbar height */
+}
+
+.dark-scrollbar::-webkit-scrollbar-track {
+  background: #0f172a; /* dark blue track */
+  border-radius: 4px;
+}
+
+.dark-scrollbar::-webkit-scrollbar-thumb {
+  background: #1e40af; /* blue thumb */
+  border-radius: 4px;
+  box-shadow: 0 0 4px rgba(30, 64, 175, 0.7); /* subtle glow */
+}
+
+.dark-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #3b82f6; /* lighter blue on hover */
+}

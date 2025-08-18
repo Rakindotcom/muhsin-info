@@ -89,7 +89,7 @@ export default function Component() {
                             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
                                 Enlightened Soul with Understanding Quran
                             </h2>
-                            <p className="text-gray-300 text-lg leading-relaxed mb-6 text-justify w-[90%]">
+                            <p className="text-gray-300 text-sm leading-relaxed mb-6 text-justify w-[90%]">
                                 An Arabic educator, researcher, and course designer passionate about helping Bengali-speaking Muslims
                                 understand the Quran, Arabic language, and Islamic identity — simply, effectively, and impactfully.
                             </p>
