@@ -153,8 +153,8 @@ const Footer = () => {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 {[{ name: "name", placeholder: "Your Name", Icon: User },
-                  { name: "phone", placeholder: "Your Phone Number", Icon: Phone },
-                  { name: "subject", placeholder: "Your Subject", Icon: FileText }
+                { name: "phone", placeholder: "Your Phone Number", Icon: Phone },
+                { name: "subject", placeholder: "Your Subject", Icon: FileText }
                 ].map(({ name, placeholder, Icon }) => (
                   <motion.div key={name} variants={itemVariants} className="relative">
                     <Icon className="absolute left-4 top-1/2 -translate-y-1/2 text-emerald-400 w-5 h-5" />
@@ -225,21 +225,36 @@ const Footer = () => {
             </motion.h3>
 
             {/* Email */}
-            <motion.div variants={itemVariants} className="flex items-start gap-5 bg-white/5 p-5 rounded-xl border border-white/10 hover:shadow-xl hover:border-emerald-500 transition-all">
-              <div className="bg-emerald-600 p-3 rounded-full shadow-md">
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-col sm:flex-row items-start gap-5 bg-white/5 p-5 rounded-xl border border-white/10 hover:shadow-xl hover:border-emerald-500 transition-all"
+            >
+              <div className="bg-emerald-600 p-3 rounded-full shadow-md flex-shrink-0">
                 <Mail className="text-white w-5 h-5" />
               </div>
-              <div>
+
+              <div className="min-w-0">
                 <h4 className="text-lg font-semibold text-emerald-400">Email</h4>
                 <ul className="text-gray-300 mt-1 space-y-1 text-sm">
-                  {["muhsin.du@gmail.com", "mohsin.tve@iut-dhaka.edu", "support@muhsinmashkur.com", "support@academy.muhsinmashkur.com"].map((email) => (
-                    <li key={email}>
-                      <a href={`mailto:${email}`} className="hover:text-white transition-colors">{email}</a>
+                  {[
+                    "muhsin.du@gmail.com",
+                    "mohsin.tve@iut-dhaka.edu",
+                    "support@muhsinmashkur.com",
+                    "support@academy.muhsinmashkur.com"
+                  ].map((email) => (
+                    <li key={email} className="break-words">
+                      <a
+                        href={`mailto:${email}`}
+                        className="hover:text-white transition-colors break-words"
+                      >
+                        {email}
+                      </a>
                     </li>
                   ))}
                 </ul>
               </div>
             </motion.div>
+
 
             {/* Phone */}
             <motion.div variants={itemVariants} className="flex items-start gap-5 bg-white/5 p-5 rounded-xl border border-white/10 hover:shadow-xl hover:border-emerald-500 transition-all">
@@ -274,9 +289,9 @@ const Footer = () => {
             {/* Social */}
             <motion.div variants={itemVariants} className="mt-10 flex flex-wrap gap-4 items-center">
               {[{ Icon: Facebook, url: "https://www.facebook.com/ustazmuhsinmashkur" },
-                { Icon: Youtube, url: "https://www.youtube.com/@muhsinmashkur" },
-                { Icon: Twitter, url: "https://twitter.com/muhsinmashkur" },
-                { Icon: Linkedin, url: "https://www.linkedin.com/in/muhsinmashkur" },
+              { Icon: Youtube, url: "https://www.youtube.com/@muhsinmashkur" },
+              { Icon: Twitter, url: "https://twitter.com/muhsinmashkur" },
+              { Icon: Linkedin, url: "https://www.linkedin.com/in/muhsinmashkur" },
               ].map(({ Icon, url }, i) => (
                 <motion.a
                   key={url}

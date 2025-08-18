@@ -97,7 +97,7 @@ export default function ConsultancyPage() {
             <h3 className="text-2xl md:text-3xl font-semibold mb-4 text-emerald-300 leading-snug">
               {step.title}
             </h3>
-            <p className="text-gray-200 whitespace-pre-line text-justify leading-relaxed">
+            <p className="text-gray-200 whitespace-pre-line text-justify leading-relaxed text-sm">
               {step.content}
             </p>
           </motion.div>
@@ -106,7 +106,7 @@ export default function ConsultancyPage() {
 
       {/* About Section */}
       <section className="py-16 px-4 bg-gradient-to-b from-gray-900 via-gray-950 to-black">
-        <div className="max-w-5xl mx-auto bg-gray-900/50 rounded-2xl shadow-xl backdrop-blur-md p-10 border border-gray-800">
+        <div className="max-w-5xl mx-auto bg-gray-900/50 rounded-2xl shadow-xl backdrop-blur-md p-8 border border-gray-800">
           <h2 className="text-3xl md:text-4xl text-center font-bold mb-8 bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent">
             About the Consultant
           </h2>
