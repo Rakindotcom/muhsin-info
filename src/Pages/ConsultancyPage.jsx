@@ -97,7 +97,7 @@ export default function ConsultancyPage() {
             <h3 className="text-2xl md:text-3xl font-semibold mb-4 text-emerald-300 leading-snug">
               {step.title}
             </h3>
-            <p className="text-gray-200 whitespace-pre-line text-justify leading-relaxed text-sm p-2">
+            <p className="text-gray-200 whitespace-pre-line text-justify leading-relaxed text-sm p-[-6px]">
               {step.content}
             </p>
           </motion.div>
