@@ -16,7 +16,7 @@ export default function Social() {
   ];
 
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
+    <div className="bg-white flex items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
       <div className="w-full max-w-5xl text-center">
         {/* Header */}
         <div className={`mb-10 transition-all duration-1000 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>

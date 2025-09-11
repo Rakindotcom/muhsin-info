@@ -5,7 +5,6 @@ import { Badge } from "../Components/Badge"
 import { Button } from "../Components/Button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../Components/Card"
 import Social from "../Components/Social"
-
 import {
     BookOpen,
     GraduationCap,
@@ -21,28 +20,30 @@ import {
 } from "lucide-react";
 import Hero from "../Components/Hero"
 import { BookShowcase } from "../Components/BookShowcase"
+import VisitorStats from "../Components/VisitorStats"
+import PreviewSection from "../Components/PreviewSection"
 
 export default function Component() {
 
     const [isScrolled, setIsScrolled] = useState(false)
-      const [mobileOpen, setMobileOpen] = useState(false)
-    
-      // Add shadow on scroll
-      useEffect(() => {
+    const [mobileOpen, setMobileOpen] = useState(false)
+
+    // Add shadow on scroll
+    useEffect(() => {
         const onScroll = () => setIsScrolled(window.scrollY > 10)
         window.addEventListener("scroll", onScroll)
         return () => window.removeEventListener("scroll", onScroll)
-      }, [])
-    
-      // Scroll smoothly to footer with id 'contact'
-      const scrollToFooter = (e) => {
+    }, [])
+
+    // Scroll smoothly to footer with id 'contact'
+    const scrollToFooter = (e) => {
         e.preventDefault()
         const footer = document.getElementById("contact")
         if (footer) {
-          footer.scrollIntoView({ behavior: "smooth" })
-          setMobileOpen(false)
+            footer.scrollIntoView({ behavior: "smooth" })
+            setMobileOpen(false)
         }
-      }
+    }
 
     return (
         <div className="min-h-screen bg-gray-950 text-gray-100">
@@ -67,7 +68,7 @@ export default function Component() {
                     </div>
                 </div>
 
-            {/* Mission Statement */}
+                {/* Mission Statement */}
                 <div className="max-w-4xl mx-auto text-center">
                     <div className="bg-gradient-to-r from-emerald-900/20 to-blue-900/20 rounded-2xl p-8 border border-gray-800">
                         <Quote className="w-12 h-12 text-emerald-400 mx-auto mb-4" />
@@ -146,80 +147,80 @@ export default function Component() {
 
             {/* Academic Excellence */}
             <section className="mt-16 max-w-6xl mx-auto px-4">
-  <h3 className="text-3xl font-extrabold text-center mb-12 text-emerald-400 tracking-wide drop-shadow-md">
-    Education
-  </h3>
+                <h3 className="text-3xl font-extrabold text-center mb-12 text-emerald-400 tracking-wide drop-shadow-md">
+                    Education
+                </h3>
 
-  <div className="grid md:grid-cols-2 gap-8">
-    {/* PhD */}
-    <div className="bg-gray-800 border border-emerald-600 rounded-lg p-6 shadow-lg hover:shadow-emerald-500 transition-shadow duration-300">
-      <div className="flex items-center mb-3">
-        <span className="text-emerald-400 text-2xl mr-3">🎓</span>
-        <h4 className="text-xl font-bold text-white">PhD - Ongoing</h4>
-      </div>
-      <p className="text-gray-300 font-semibold mb-1">Department of Arabic, University of Dhaka</p>
-      <p className="text-gray-400 italic">
-        Topic: <span className="text-emerald-300 font-medium">Teaching the Meaning of the Holy Quran in Primary, Secondary, and Higher Secondary Levels: An Empirical Study</span>
-      </p>
-    </div>
+                <div className="grid md:grid-cols-2 gap-8">
+                    {/* PhD */}
+                    <div className="bg-gray-800 border border-emerald-600 rounded-lg p-6 shadow-lg hover:shadow-emerald-500 transition-shadow duration-300">
+                        <div className="flex items-center mb-3">
+                            <span className="text-emerald-400 text-2xl mr-3">🎓</span>
+                            <h4 className="text-xl font-bold text-white">PhD - Ongoing</h4>
+                        </div>
+                        <p className="text-gray-300 font-semibold mb-1">Department of Arabic, University of Dhaka</p>
+                        <p className="text-gray-400 italic">
+                            Topic: <span className="text-emerald-300 font-medium">Teaching the Meaning of the Holy Quran in Primary, Secondary, and Higher Secondary Levels: An Empirical Study</span>
+                        </p>
+                    </div>
 
-    {/* MPhil */}
-    <div className="bg-gray-800 border border-emerald-600 rounded-lg p-6 shadow-lg hover:shadow-emerald-500 transition-shadow duration-300">
-      <div className="flex items-center mb-3">
-        <span className="text-emerald-400 text-2xl mr-3">📚</span>
-        <h4 className="text-xl font-bold text-white">Master of Philosophy (MPhil) - 2022</h4>
-      </div>
-      <p className="text-gray-300 font-semibold mb-1"><strong>Institution:</strong> University Of Dhaka</p>
-      <p className="text-gray-300 font-semibold mb-1"><strong>Department:</strong> Department of Arabic</p>
-      <p className="text-gray-400 italic mb-1">
-        Topic: <span className="text-emerald-300 font-medium">“The Method of Teaching the Meaning of Al-Quran: An Empirical Study on Bengali Speaking People”</span>
-      </p>
-      <p className="text-gray-400">Degree Awarded on 27th of March 2022 with Scholarship.</p>
-    </div>
+                    {/* MPhil */}
+                    <div className="bg-gray-800 border border-emerald-600 rounded-lg p-6 shadow-lg hover:shadow-emerald-500 transition-shadow duration-300">
+                        <div className="flex items-center mb-3">
+                            <span className="text-emerald-400 text-2xl mr-3">📚</span>
+                            <h4 className="text-xl font-bold text-white">Master of Philosophy (MPhil) - 2022</h4>
+                        </div>
+                        <p className="text-gray-300 font-semibold mb-1"><strong>Institution:</strong> University Of Dhaka</p>
+                        <p className="text-gray-300 font-semibold mb-1"><strong>Department:</strong> Department of Arabic</p>
+                        <p className="text-gray-400 italic mb-1">
+                            Topic: <span className="text-emerald-300 font-medium">“The Method of Teaching the Meaning of Al-Quran: An Empirical Study on Bengali Speaking People”</span>
+                        </p>
+                        <p className="text-gray-400">Degree Awarded on 27th of March 2022 with Scholarship.</p>
+                    </div>
 
-    {/* MA */}
-    <div className="bg-gray-800 border border-emerald-600 rounded-lg p-6 shadow-lg hover:shadow-emerald-500 transition-shadow duration-300">
-      <div className="flex items-center mb-3">
-        <span className="text-emerald-400 text-2xl mr-3">🎓</span>
-        <h4 className="text-xl font-bold text-white">Master of Arts (M.A) - 2015</h4>
-      </div>
-      <p className="text-gray-300 font-semibold mb-1">Department of Arabic, University of Dhaka</p>
-      <p className="text-emerald-300 font-bold">CGPA 4.00 (Out of 4.00) — 1st class 1st (1st Position)</p>
-    </div>
+                    {/* MA */}
+                    <div className="bg-gray-800 border border-emerald-600 rounded-lg p-6 shadow-lg hover:shadow-emerald-500 transition-shadow duration-300">
+                        <div className="flex items-center mb-3">
+                            <span className="text-emerald-400 text-2xl mr-3">🎓</span>
+                            <h4 className="text-xl font-bold text-white">Master of Arts (M.A) - 2015</h4>
+                        </div>
+                        <p className="text-gray-300 font-semibold mb-1">Department of Arabic, University of Dhaka</p>
+                        <p className="text-emerald-300 font-bold">CGPA 4.00 (Out of 4.00) — 1st class 1st (1st Position)</p>
+                    </div>
 
-    {/* BA */}
-    <div className="bg-gray-800 border border-emerald-600 rounded-lg p-6 shadow-lg hover:shadow-emerald-500 transition-shadow duration-300">
-      <div className="flex items-center mb-3">
-        <span className="text-emerald-400 text-2xl mr-3">📜</span>
-        <h4 className="text-xl font-bold text-white">Bachelor of Arts (B.A) - 2014</h4>
-      </div>
-      <p className="text-gray-300 font-semibold mb-1">Department of Arabic, University of Dhaka</p>
-      <p className="text-emerald-300 font-bold">C.G.P.A 3.98 (out of 4.00), 1st class 1st, 1st position in the faculty of Arts</p>
-      <p className="text-amber-300 font-bold">Secured the Prime Minister Gold Medal for achieving the Highest CGPA in the Faculty of Arts in 2014. 
-</p>
-    </div>
+                    {/* BA */}
+                    <div className="bg-gray-800 border border-emerald-600 rounded-lg p-6 shadow-lg hover:shadow-emerald-500 transition-shadow duration-300">
+                        <div className="flex items-center mb-3">
+                            <span className="text-emerald-400 text-2xl mr-3">📜</span>
+                            <h4 className="text-xl font-bold text-white">Bachelor of Arts (B.A) - 2014</h4>
+                        </div>
+                        <p className="text-gray-300 font-semibold mb-1">Department of Arabic, University of Dhaka</p>
+                        <p className="text-emerald-300 font-bold">C.G.P.A 3.98 (out of 4.00), 1st class 1st, 1st position in the faculty of Arts</p>
+                        <p className="text-amber-300 font-bold">Secured the Prime Minister Gold Medal for achieving the Highest CGPA in the Faculty of Arts in 2014.
+                        </p>
+                    </div>
 
-    {/* Takmeel / Dawratul Hadith */}
-    <div className="bg-gray-800 border border-emerald-600 rounded-lg p-6 shadow-lg hover:shadow-emerald-500 transition-shadow duration-300">
-      <div className="flex items-center mb-3">
-        <span className="text-emerald-400 text-2xl mr-3">🕌</span>
-        <h4 className="text-xl font-bold text-white">Takmeel / Dawratul Hadith - 2009</h4>
-      </div>
-      <p className="text-gray-300 font-semibold mb-1">Al Jamiyatul Islamiya Darul Uloom Madani Nagar, Dhaka</p>
-      <p className="text-emerald-300 font-bold">Befaqul Madarisil arabiyyah Bangladesh — 1st class</p>
-    </div>
+                    {/* Takmeel / Dawratul Hadith */}
+                    <div className="bg-gray-800 border border-emerald-600 rounded-lg p-6 shadow-lg hover:shadow-emerald-500 transition-shadow duration-300">
+                        <div className="flex items-center mb-3">
+                            <span className="text-emerald-400 text-2xl mr-3">🕌</span>
+                            <h4 className="text-xl font-bold text-white">Takmeel / Dawratul Hadith - 2009</h4>
+                        </div>
+                        <p className="text-gray-300 font-semibold mb-1">Al Jamiyatul Islamiya Darul Uloom Madani Nagar, Dhaka</p>
+                        <p className="text-emerald-300 font-bold">Befaqul Madarisil arabiyyah Bangladesh — 1st class</p>
+                    </div>
 
-    {/* Hifzul Qura’n */}
-    <div className="bg-gray-800 border border-emerald-600 rounded-lg p-6 shadow-lg hover:shadow-emerald-500 transition-shadow duration-300">
-      <div className="flex items-center mb-3">
-        <span className="text-emerald-400 text-2xl mr-3">📖</span>
-        <h4 className="text-xl font-bold text-white">Hifzul Qura’n - 2001</h4>
-      </div>
-      <p className="text-gray-300 font-semibold mb-1">Al-Fatah Tahfizul Qura’n Academy, Dhaka</p>
-      <p className="text-emerald-300 font-bold">Befaqul Madarisil arabiyyah Bangladesh — 1st class</p>
-    </div>
-  </div>
-</section>
+                    {/* Hifzul Qura’n */}
+                    <div className="bg-gray-800 border border-emerald-600 rounded-lg p-6 shadow-lg hover:shadow-emerald-500 transition-shadow duration-300">
+                        <div className="flex items-center mb-3">
+                            <span className="text-emerald-400 text-2xl mr-3">📖</span>
+                            <h4 className="text-xl font-bold text-white">Hifzul Qura’n - 2001</h4>
+                        </div>
+                        <p className="text-gray-300 font-semibold mb-1">Al-Fatah Tahfizul Qura’n Academy, Dhaka</p>
+                        <p className="text-emerald-300 font-bold">Befaqul Madarisil arabiyyah Bangladesh — 1st class</p>
+                    </div>
+                </div>
+            </section>
 
 
             {/* Areas of Expertise */}
@@ -316,12 +317,12 @@ export default function Component() {
                     </div>
                 </div>
             </section>
-
+            <PreviewSection />
             <section className="py-16 px-4 bg-gray-800/30">
                 <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 text-white">Our Books</h2>
                 <BookShowcase />
             </section>
-            
+
             {/* Testimonials */}
             <section className="py-16 px-4 bg-gray-900/30">
                 <div className="max-w-4xl mx-auto">
@@ -367,7 +368,7 @@ export default function Component() {
             {/* Blog Section */}
             <section className="py-16 px-4">
                 <div className="max-w-4xl mx-auto">
-                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white">Insightful Blogs</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white">Quran Blogs</h2>
                     <div className="space-y-6">
                         {[
                             "How to Learn Quran with Meaning in Just 30 Days",
@@ -402,26 +403,36 @@ export default function Component() {
             <Social />
 
             {/* Call to Action */}
-            <section className="py-20 px-4 bg-gradient-to-r from-emerald-900/30 to-blue-900/30">
-                <div className="max-w-4xl mx-auto text-center">
+            <section className="py-12 px-4 bg-gradient-to-r from-emerald-900/30 to-blue-900/30">
+                <div className="max-w-5xl mx-auto text-center">
                     <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">Join the Movement</h2>
                     <p className="text-xl text-gray-300 mb-8">
                         Be part of the mission to empower 10 million Bengali Muslims to understand the Qur'an by 2030
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Button size="lg" className="border-3 border-emerald-500 hover:cursor-pointer hover:scale-101">
-                            <BookOpen className="w-5 h-5 mr-2" />
-                            Start Your Journey
-                        </Button>
-                        <Button
-                            size="lg"
-                            variant="outline"
-                            className="bg-transparent border-gray-600 text-gray-300 hover:bg-amber-800 hover:cursor-pointer hover:scale-101"
-                        >
-                            <Users className="w-5 h-5 mr-2" />
-                            Contact for Collaboration
-                        </Button>
+                        <a href="https://academy.muhsinmashkur.com/" target="_blank" rel="noopener noreferrer">
+                            <Button size="lg" className="border-3 border-emerald-500 hover:cursor-pointer hover:scale-101">
+                                <BookOpen className="w-5 h-5 mr-2" />
+                                Start Your Journey
+                            </Button>
+                        </a>
+
+                        <a href="https://calendly.com/muhsin-du/30min" target="_blank" rel="noopener noreferrer">
+                            <Button
+                                size="lg"
+                                variant="outline"
+                                className="bg-transparent border-gray-600 text-gray-300 hover:bg-amber-800 hover:cursor-pointer hover:scale-101"
+                            >
+                                <Users className="w-5 h-5 mr-2" />
+                                Contact for Collaboration
+                            </Button>
+                        </a>
+
                     </div>
+                </div>
+                <div className="max-w-4xl mx-auto text-center mt-12">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">Visitor Statistics</h2>
+                    <VisitorStats />
                 </div>
             </section>
         </div>

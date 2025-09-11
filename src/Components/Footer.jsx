@@ -264,7 +264,7 @@ const Footer = () => {
               <div>
                 <h4 className="text-lg font-semibold text-emerald-400">Phone</h4>
                 <ul className="text-gray-300 mt-1 space-y-1 text-sm">
-                  {["+88 01811-996981", "+88 01722-786745"].map((phone) => (
+                  {["+88 01811-996981", "+88 01962-577467"].map((phone) => (
                     <li key={phone}>
                       <a href={`tel:${phone.replace(/[^+\d]/g, "")}`} className="hover:text-white transition-colors">{phone}</a>
                     </li>

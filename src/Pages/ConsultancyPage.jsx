@@ -61,18 +61,15 @@ export default function ConsultancyPage() {
             counselling approaches.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 hover:cursor-pointer text-white border-1 border-white hover:border-amber-400">
-
-              Book a Session
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="bg-transparent border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white hover:cursor-pointer"
-            >
-              <Users className="w-5 h-5 mr-2" />
-              Upcoming Programs
-            </Button>
+            <a href="https://calendly.com/muhsin-du/30min" target="_blank" rel="noopener noreferrer">
+              <Button
+                size="lg"
+                className="bg-emerald-600 hover:bg-emerald-700 hover:cursor-pointer text-white border-1 border-white hover:border-amber-400"
+              >
+                Book a Session
+              </Button>
+            </a>
+            
             <Button
               size="lg"
               className="bg-blue-600 hover:bg-blue-700 text-white border border-white hover:border-amber-400 hover:cursor-pointer"
@@ -286,91 +283,91 @@ export default function ConsultancyPage() {
       </section>
 
       <section className="py-16 px-4 bg-gray-950">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
-            Friday Special Talks & Counselling Sessions
-          </h2>
-          <p className="text-gray-400 text-lg">
-            After Jumu'ah Prayer · Open to All · Practical & Purpose-Driven
-          </p>
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+              Friday Special Talks & Counselling Sessions
+            </h2>
+            <p className="text-gray-400 text-lg">
+              After Jumu'ah Prayer · Open to All · Practical & Purpose-Driven
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Talk 1 */}
+            <Card className="bg-gray-900 border-gray-800 hover:border-emerald-700 transition-colors">
+              <CardHeader>
+                <div className="flex items-center justify-between mb-2">
+                  <Badge className="bg-emerald-600 text-white">8 Nov</Badge>
+                  <Calendar className="w-5 h-5 text-emerald-400" />
+                </div>
+                <CardTitle className="text-emerald-400 text-lg leading-snug">
+                  Crafting Your Career with Faith
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="text-sm text-gray-300 space-y-2 text-justify">
+                <p className="flex items-center gap-2 text-emerald-300">
+                  <Clock className="w-4 h-4" /> After Jumu’ah Prayer (1:30 PM approx.)
+                </p>
+                <p className="flex items-center gap-2 text-emerald-200">
+                  <Users className="w-4 h-4" /> Students & Young Professionals
+                </p>
+                <p>
+                  A motivational session exploring how Islamic principles can guide you in choosing and thriving in a career aligned with purpose and barakah.
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Talk 2 */}
+            <Card className="bg-gray-900 border-gray-800 hover:border-blue-700 transition-colors">
+              <CardHeader>
+                <div className="flex items-center justify-between mb-2">
+                  <Badge className="bg-blue-600 text-white">22 Nov</Badge>
+                  <MessageSquareHeart className="w-5 h-5 text-blue-400" />
+                </div>
+                <CardTitle className="text-blue-400 text-lg leading-snug">
+                  Healing the Self
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="text-sm text-gray-300 space-y-2 text-justify">
+                <p className="flex items-center gap-2 text-blue-300">
+                  <Clock className="w-4 h-4" /> After Jumu’ah Prayer (1:30 PM approx.)
+                </p>
+                <p className="flex items-center gap-2 text-blue-200">
+                  <Users className="w-4 h-4" /> Anyone facing emotional burden
+                </p>
+                <p>
+                  A reflection session combining Islamic insights and practical frameworks to deal with emotional well-being and personal growth.
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Talk 3 */}
+            <Card className="bg-gray-900 border-gray-800 hover:border-purple-700 transition-colors">
+              <CardHeader>
+                <div className="flex items-center justify-between mb-2">
+                  <Badge className="bg-purple-600 text-white">13 Dec</Badge>
+                  <Users className="w-5 h-5 text-purple-400" />
+                </div>
+                <CardTitle className="text-purple-400 text-lg leading-snug">
+                  Saving the Home
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="text-sm text-gray-300 space-y-2 text-justify">
+                <p className="flex items-center gap-2 text-purple-300">
+                  <Clock className="w-4 h-4" /> After Jumu’ah Prayer (1:30 PM approx.)
+                </p>
+                <p className="flex items-center gap-2 text-purple-200">
+                  <Users className="w-4 h-4" /> Couples, Parents, Family Leaders
+                </p>
+                <p>
+                  A powerful session to rebuild harmony in the home using Islamic family values blended with practical counselling perspectives.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
         </div>
-
-        <div className="grid md:grid-cols-3 gap-8">
-          {/* Talk 1 */}
-          <Card className="bg-gray-900 border-gray-800 hover:border-emerald-700 transition-colors">
-            <CardHeader>
-              <div className="flex items-center justify-between mb-2">
-                <Badge className="bg-emerald-600 text-white">8 Nov</Badge>
-                <Calendar className="w-5 h-5 text-emerald-400" />
-              </div>
-              <CardTitle className="text-emerald-400 text-lg leading-snug">
-                Crafting Your Career with Faith
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="text-sm text-gray-300 space-y-2 text-justify">
-              <p className="flex items-center gap-2 text-emerald-300">
-                <Clock className="w-4 h-4" /> After Jumu’ah Prayer (1:30 PM approx.)
-              </p>
-              <p className="flex items-center gap-2 text-emerald-200">
-                <Users className="w-4 h-4" /> Students & Young Professionals
-              </p>
-              <p>
-                A motivational session exploring how Islamic principles can guide you in choosing and thriving in a career aligned with purpose and barakah.
-              </p>
-            </CardContent>
-          </Card>
-
-          {/* Talk 2 */}
-          <Card className="bg-gray-900 border-gray-800 hover:border-blue-700 transition-colors">
-            <CardHeader>
-              <div className="flex items-center justify-between mb-2">
-                <Badge className="bg-blue-600 text-white">22 Nov</Badge>
-                <MessageSquareHeart className="w-5 h-5 text-blue-400" />
-              </div>
-              <CardTitle className="text-blue-400 text-lg leading-snug">
-                Healing the Self
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="text-sm text-gray-300 space-y-2 text-justify">
-              <p className="flex items-center gap-2 text-blue-300">
-                <Clock className="w-4 h-4" /> After Jumu’ah Prayer (1:30 PM approx.)
-              </p>
-              <p className="flex items-center gap-2 text-blue-200">
-                <Users className="w-4 h-4" /> Anyone facing emotional burden
-              </p>
-              <p>
-                A reflection session combining Islamic insights and practical frameworks to deal with emotional well-being and personal growth.
-              </p>
-            </CardContent>
-          </Card>
-
-          {/* Talk 3 */}
-          <Card className="bg-gray-900 border-gray-800 hover:border-purple-700 transition-colors">
-            <CardHeader>
-              <div className="flex items-center justify-between mb-2">
-                <Badge className="bg-purple-600 text-white">13 Dec</Badge>
-                <Users className="w-5 h-5 text-purple-400" />
-              </div>
-              <CardTitle className="text-purple-400 text-lg leading-snug">
-                Saving the Home
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="text-sm text-gray-300 space-y-2 text-justify">
-              <p className="flex items-center gap-2 text-purple-300">
-                <Clock className="w-4 h-4" /> After Jumu’ah Prayer (1:30 PM approx.)
-              </p>
-              <p className="flex items-center gap-2 text-purple-200">
-                <Users className="w-4 h-4" /> Couples, Parents, Family Leaders
-              </p>
-              <p>
-                A powerful session to rebuild harmony in the home using Islamic family values blended with practical counselling perspectives.
-              </p>
-            </CardContent>
-          </Card>
-        </div>
-      </div>
-    </section>
+      </section>
 
       {/* Resources Section */}
       <section className="py-16 px-4 bg-gray-900/30">
