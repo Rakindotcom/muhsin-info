@@ -51,7 +51,7 @@ export default function Header() {
             >
               BLOG
             </a>
-            <NavItem to="/consultancy" label="CONSULT NOW" pulse />
+            <NavItem to="/consultancy" label="CONSULT NOW" pulse yellow />
             <div className="flex items-center space-x-2 ml-6">
               <button
                 onClick={scrollToFooter}
@@ -107,7 +107,7 @@ export default function Header() {
           >
             BLOG
           </a>
-          <MobileLink to="/consultancy" pulse>
+          <MobileLink to="/consultancy" pulse yellow>
             CONSULT NOW
           </MobileLink>
           <div className="pt-4 flex flex-col space-y-2">
@@ -131,12 +131,12 @@ export default function Header() {
 }
 
 // Desktop NavItem with optional blinking pulse effect for CONSULT NOW
-const NavItem = ({ to, label, pulse }) => (
+const NavItem = ({ to, label, pulse, yellow }) => (
   <NavLink
     to={to}
     className={({ isActive }) =>
       `px-1 hover:text-emerald-600 transition font-semibold
-      ${isActive ? "text-emerald-600" : "text-slate-900"}
+      ${isActive ? "text-emerald-600" : yellow ? "text-yellow-600 hover:text-yellow-500" : "text-slate-900"}
       ${pulse && !isActive ? "animate-pulse" : ""}
     `
     }
@@ -146,12 +146,12 @@ const NavItem = ({ to, label, pulse }) => (
 )
 
 // Mobile NavLink with optional blinking pulse effect for CONSULT NOW
-const MobileLink = ({ to, children, pulse }) => (
+const MobileLink = ({ to, children, pulse, yellow }) => (
   <NavLink
     to={to}
     className={({ isActive }) =>
       `block py-2 border-b border-slate-300 transition font-semibold
-      ${isActive ? "text-emerald-600" : "text-slate-900"}
+      ${isActive ? "text-emerald-600" : yellow ? "text-yellow-600 hover:text-yellow-500" : "text-slate-900"}
       ${pulse && !isActive ? "animate-pulse" : ""}
       `
     }
