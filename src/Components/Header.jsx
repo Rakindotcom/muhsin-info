@@ -28,7 +28,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-24">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <img src="/logo.png" alt="Logo" className="h-20 w-auto invert-50" />
+            <img src="/logo.png" alt="Logo" className="h-20 w-auto" />
           </Link>
 
           {/* Desktop Navigation - Now hidden below 1286px */}
