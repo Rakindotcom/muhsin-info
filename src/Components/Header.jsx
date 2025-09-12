@@ -23,7 +23,7 @@ export default function Header() {
   }
 
   return (
-    <header className={`w-full bg-slate-900 transition-shadow duration-300 ${isScrolled ? "shadow-md" : ""}`}>
+    <header className={`w-full bg-gray-200 transition-shadow duration-300 ${isScrolled ? "shadow-md" : ""}`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-24">
           {/* Logo */}
@@ -31,14 +31,14 @@ export default function Header() {
             <img src="/logo.png" alt="Logo" className="h-20 w-auto" />
           </Link>
 
-          {/* Desktop Navigation - Now hidden below 1286px */}
-          <nav className="hidden xl:flex items-center space-x-6 text-white font-medium">
+          {/* Desktop Navigation */}
+          <nav className="hidden xl:flex items-center space-x-6 font-semibold text-slate-900">
             <NavItem to="/" label="HOME" />
             <a
               href="https://academy.muhsinmashkur.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-yellow-400 hover:text-yellow-300 px-1 font-medium transition"
+              className="text-yellow-600 hover:text-yellow-500 px-1 font-semibold transition"
             >
               ACADEMY
             </a>
@@ -47,7 +47,7 @@ export default function Header() {
               href="https://academy.muhsinmashkur.com/blog/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white hover:text-emerald-400 px-1 font-medium transition"
+              className="text-slate-900 hover:text-emerald-600 px-1 font-semibold transition"
             >
               BLOG
             </a>
@@ -55,23 +55,24 @@ export default function Header() {
             <div className="flex items-center space-x-2 ml-6">
               <button
                 onClick={scrollToFooter}
-                className="bg-emerald-400 hover:cursor-pointer hover:bg-emerald-500 text-slate-900 px-4 py-2 rounded-full font-semibold transition"
+                className="bg-emerald-400 hover:bg-emerald-500 text-slate-900 px-4 py-2 rounded-full font-semibold transition"
               >
                 HIRE FOR A SESSION
               </button>
-              <div className="w-px h-6 bg-white opacity-30 mx-2" />
+              <div className="w-px h-6 bg-slate-400 opacity-30 mx-2" />
               <button
                 onClick={() => window.open("https://calendly.com/muhsin-du/30min", "_blank")}
-                className="bg-yellow-400 text-slate-900 px-4 py-2 rounded-full text-center font-semibold">
+                className="bg-yellow-400 text-slate-900 px-4 py-2 rounded-full text-center font-semibold"
+              >
                 ONE TO ONE CLASS
               </button>
             </div>
           </nav>
 
-          {/* Mobile Menu Toggle - Now shown below 1286px */}
+          {/* Mobile Menu Toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="xl:hidden text-white focus:outline-none"
+            className="xl:hidden text-slate-900 focus:outline-none"
             aria-label="Toggle menu"
           >
             <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -85,15 +86,15 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile Navigation - Now shown below 1286px */}
+      {/* Mobile Navigation */}
       {mobileOpen && (
-        <div className="xl:hidden bg-slate-900 px-4 pb-4 space-y-2 text-white font-medium">
+        <div className="xl:hidden bg-gray-100 px-4 pb-4 space-y-2 font-semibold text-slate-900">
           <MobileLink to="/">HOME</MobileLink>
           <a
             href="https://academy.muhsinmashkur.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="block py-2 border-b border-slate-700 text-yellow-400 hover:text-yellow-300 font-medium transition"
+            className="block py-2 border-b border-slate-300 text-yellow-600 hover:text-yellow-500 font-semibold transition"
           >
             ACADEMY
           </a>
@@ -102,7 +103,7 @@ export default function Header() {
             href="https://academy.muhsinmashkur.com/blog/"
             target="_blank"
             rel="noopener noreferrer"
-            className="block py-2 border-b border-slate-700 text-white hover:text-emerald-400 font-medium transition"
+            className="block py-2 border-b border-slate-300 text-slate-900 hover:text-emerald-600 font-semibold transition"
           >
             BLOG
           </a>
@@ -118,7 +119,8 @@ export default function Header() {
             </button>
             <button
               onClick={() => window.open("https://calendly.com/muhsin-du/30min", "_blank")}
-              className="bg-yellow-400 text-slate-900 px-4 py-2 rounded-full text-center font-semibold">
+              className="bg-yellow-400 text-slate-900 px-4 py-2 rounded-full text-center font-semibold"
+            >
               ONE TO ONE CLASS
             </button>
           </div>
@@ -133,8 +135,8 @@ const NavItem = ({ to, label, pulse }) => (
   <NavLink
     to={to}
     className={({ isActive }) =>
-      `px-1 hover:text-emerald-400 transition font-medium
-      ${isActive ? "text-emerald-400" : "text-white"}
+      `px-1 hover:text-emerald-600 transition font-semibold
+      ${isActive ? "text-emerald-600" : "text-slate-900"}
       ${pulse && !isActive ? "animate-pulse" : ""}
     `
     }
@@ -148,8 +150,8 @@ const MobileLink = ({ to, children, pulse }) => (
   <NavLink
     to={to}
     className={({ isActive }) =>
-      `block py-2 border-b border-slate-700 transition
-      ${isActive ? "text-emerald-400" : "text-white"}
+      `block py-2 border-b border-slate-300 transition font-semibold
+      ${isActive ? "text-emerald-600" : "text-slate-900"}
       ${pulse && !isActive ? "animate-pulse" : ""}
       `
     }
