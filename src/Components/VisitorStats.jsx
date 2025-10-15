@@ -3,10 +3,12 @@ import { useEffect, useState } from "react";
 import { rtdb } from "../firebase";
 import { ref, set, onDisconnect, onValue, runTransaction, push } from "firebase/database";
 import { User, CalendarDays } from "lucide-react";
+import { useTranslation } from "../hooks/useTranslation";
 
 export default function VisitorStats() {
   const [todayVisits, setTodayVisits] = useState(0);
   const [onlineCount, setOnlineCount] = useState(0);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const today = new Date().toISOString().split("T")[0];
@@ -45,11 +47,11 @@ export default function VisitorStats() {
   return (
     <div className="flex justify-center mt-6 px-4">
       <div className="flex flex-col sm:flex-row gap-6 justify-center">
-        {/* Today’s Visits Card */}
+        {/* Today's Visits Card */}
         <div className="flex items-center gap-4 bg-white/10 backdrop-blur-md text-white px-6 py-4 rounded-2xl shadow-md border border-white/20 transform hover:scale-105 transition-transform duration-300">
           <CalendarDays className="w-8 h-8 text-teal-400 animate-pulse" />
           <div>
-            <div className="text-sm opacity-80">Today’s Visits</div>
+            <div className="text-sm opacity-80">{t('todaysVisits')}</div>
             <div className="text-2xl font-bold">{todayVisits}</div>
           </div>
         </div>
@@ -58,7 +60,7 @@ export default function VisitorStats() {
         <div className="flex items-center gap-4 bg-white/10 backdrop-blur-md text-white px-6 py-4 rounded-2xl shadow-md border border-white/20 transform hover:scale-105 transition-transform duration-300">
           <User className="w-8 h-8 text-green-400 animate-bounce" />
           <div>
-            <div className="text-sm opacity-80">Online Now</div>
+            <div className="text-sm opacity-80">{t('onlineNow')}</div>
             <div className="text-2xl font-bold">{onlineCount}</div>
           </div>
         </div>

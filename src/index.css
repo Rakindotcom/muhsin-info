@@ -1,24 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@100..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import "tailwindcss";
 
 * {
-    font-family: "Poppins", sans-serif;
+  font-family: "Poppins", "Tiro Bangla", sans-serif;
 }
 
-.bangla {
-    font-family: "Anek Bangla", sans-serif;
+/* Bengali text specific styling */
+.bangla,
+[lang="bn"],
+.lang-bn {
+  font-family: "Tiro Bangla", serif;
+}
+
+/* English text specific styling */
+.english,
+[lang="en"],
+.lang-en {
+  font-family: "Poppins", sans-serif;
 }
 
 /* NotFoundPage.css */
 
-
-body, html {
-  margin: 0;
-  padding: 0;
-  font-family: 'Inter', sans-serif;
-}
 
 .nf-container {
   display: flex;
@@ -42,6 +45,7 @@ body, html {
   margin: 0;
   background: linear-gradient(135deg, #00ffe7, #00bfff);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -77,7 +81,8 @@ body, html {
   from {
     opacity: 0;
     transform: translateY(20px);
-  } 
+  }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -85,31 +90,123 @@ body, html {
 }
 
 
- @keyframes shine {
-    0% { transform: translateX(-75%) rotate(12deg); }
-    100% { transform: translateX(150%) rotate(12deg); }
+@keyframes shine {
+  0% {
+    transform: translateX(-75%) rotate(12deg);
   }
 
-  .animate-shine {
-    animation: shine 1s ease-in-out;
+  100% {
+    transform: translateX(150%) rotate(12deg);
   }
+}
 
- /* Add this to your global CSS or a <style> tag */
+.animate-shine {
+  animation: shine 1s ease-in-out;
+}
+
+/* Add this to your global CSS or a <style> tag */
 .dark-scrollbar::-webkit-scrollbar {
-  height: 8px; /* horizontal scrollbar height */
+  height: 8px;
+  /* horizontal scrollbar height */
 }
 
 .dark-scrollbar::-webkit-scrollbar-track {
-  background: #0f172a; /* dark blue track */
+  background: #0f172a;
+  /* dark blue track */
   border-radius: 4px;
 }
 
 .dark-scrollbar::-webkit-scrollbar-thumb {
-  background: #1e40af; /* blue thumb */
+  background: #1e40af;
+  /* blue thumb */
   border-radius: 4px;
-  box-shadow: 0 0 4px rgba(30, 64, 175, 0.7); /* subtle glow */
+  box-shadow: 0 0 4px rgba(30, 64, 175, 0.7);
+  /* subtle glow */
 }
 
 .dark-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #3b82f6; /* lighter blue on hover */
+  background: #3b82f6;
+  /* lighter blue on hover */
+}
+
+/* Additional font styling for better rendering */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Language specific font styling with higher specificity */
+html body.lang-bn,
+html body.lang-bn *,
+html body.lang-bn input,
+html body.lang-bn button,
+html body.lang-bn textarea {
+  font-family: "Tiro Bangla", serif !important;
+}
+
+html body.lang-en,
+html body.lang-en *,
+html body.lang-en input,
+html body.lang-en button,
+html body.lang-en textarea {
+  font-family: "Poppins", sans-serif !important;
+}
+
+/* Fallback for when no language class is set */
+html body:not(.lang-bn):not(.lang-en) {
+  font-family: "Poppins", sans-serif !important;
+}
+
+/* Ensure fonts are loaded */
+@font-face {
+  font-family: 'Poppins';
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Tiro Bangla';
+  font-display: swap;
+}
+
+/* Language popup styles */
+.language-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  backdrop-filter: blur(5px);
+}
+
+.language-popup {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  animation: popupFadeIn 0.3s ease-out;
+}
+
+@keyframes popupFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Fix for gradient text background-clip */
+.gradient-text {
+  background-clip: text;
+  -webkit-background-clip: text;
 }

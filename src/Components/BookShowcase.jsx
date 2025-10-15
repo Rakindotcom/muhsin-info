@@ -2,18 +2,21 @@ import React from "react"
 import { BookOpen } from "lucide-react"
 import { Button } from "./Button"
 import { ExternalLink } from "lucide-react"
+import { useTranslation } from "../hooks/useTranslation"
 
 export function BookShowcase() {
+  const { t, language } = useTranslation()
+  
   const bookDetails = {
-    title: "কুরআন বোঝার হাতেখড়ি",
-    author: "Hafiz Mawlana Muhammad Muhsin Mashkur",
-    publisher: "Ilham (ILHAM)",
-    subject: "Discussions on the Qur'an",
-    pages: "335",
-    cover: "Hardcover",
-    edition: "1st Edition, 2025",
+    title: language === 'en' ? "Understanding the Quran: A Beginner's Guide" : "কুরআন বোঝার হাতেখড়ি",
+    author: language === 'en' ? "Hafiz Mawlana Muhammad Muhsin Mashkur" : "হাফেজ মাওলানা মুহাম্মদ মুহসিন মাশকুর",
+    publisher: language === 'en' ? "Ilham (ILHAM)" : "ইলহাম (ILHAM)",
+    subject: language === 'en' ? "Discussions on the Qur'an" : "কুরআনের আলোচনা",
+    pages: language === 'en' ? "335" : "৩৩৫",
+    cover: language === 'en' ? "Hardcover" : "হার্ডকভার",
+    edition: language === 'en' ? "1st Edition, 2025" : "১ম সংস্করণ, ২০২৫",
     isbn: "978-984-98316-0-0",
-    language: "Bengali",
+    language: language === 'en' ? "Bengali" : "বাংলা",
     detailsUrl: "https://academy.muhsinmashkur.com/book/",
   }
 
@@ -45,42 +48,42 @@ export function BookShowcase() {
             <div className="space-y-4">
               <div className="grid grid-cols-1 gap-3">
                 <div className="flex items-start">
-                  <span className="text-gray-400 font-medium min-w-[100px]">Author:</span>
+                  <span className="text-gray-400 font-medium min-w-[100px]">{t('author')}:</span>
                   <span className="text-gray-200 font-semibold">{bookDetails.author}</span>
                 </div>
 
                 <div className="flex items-start">
-                  <span className="text-gray-400 font-medium min-w-[100px]">Publisher:</span>
+                  <span className="text-gray-400 font-medium min-w-[100px]">{t('publisher')}:</span>
                   <span className="text-gray-200">{bookDetails.publisher}</span>
                 </div>
 
                 <div className="flex items-start">
-                  <span className="text-gray-400 font-medium min-w-[100px]">Subject:</span>
+                  <span className="text-gray-400 font-medium min-w-[100px]">{t('subject')}:</span>
                   <span className="text-gray-200">{bookDetails.subject}</span>
                 </div>
 
                 <div className="flex items-start">
-                  <span className="text-gray-400 font-medium min-w-[100px]">Pages:</span>
+                  <span className="text-gray-400 font-medium min-w-[100px]">{t('pages')}:</span>
                   <span className="text-gray-200">{bookDetails.pages}</span>
                 </div>
 
                 <div className="flex items-start">
-                  <span className="text-gray-400 font-medium min-w-[100px]">Cover:</span>
+                  <span className="text-gray-400 font-medium min-w-[100px]">{t('cover')}:</span>
                   <span className="text-gray-200">{bookDetails.cover}</span>
                 </div>
 
                 <div className="flex items-start">
-                  <span className="text-gray-400 font-medium min-w-[100px]">Edition:</span>
+                  <span className="text-gray-400 font-medium min-w-[100px]">{t('edition')}:</span>
                   <span className="text-gray-200">{bookDetails.edition}</span>
                 </div>
 
                 <div className="flex items-start">
-                  <span className="text-gray-400 font-medium min-w-[100px]">ISBN:</span>
+                  <span className="text-gray-400 font-medium min-w-[100px]">{t('isbn')}:</span>
                   <span className="text-gray-200 font-mono text-sm">{bookDetails.isbn}</span>
                 </div>
 
                 <div className="flex items-start">
-                  <span className="text-gray-400 font-medium min-w-[100px]">Language:</span>
+                  <span className="text-gray-400 font-medium min-w-[100px]">{t('language')}:</span>
                   <span className="text-gray-200">{bookDetails.language}</span>
                 </div>
               </div>
@@ -92,7 +95,7 @@ export function BookShowcase() {
                 className="bg-gradient-to-r from-emerald-600 to-blue-600 hover:from-emerald-700 hover:to-blue-700 text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
                 onClick={() => window.open(bookDetails.detailsUrl, "_blank")}
               >
-                Check Details
+                {t('checkDetails')}
                 <ExternalLink className="w-5 h-5 ml-2" />
               </Button>
             </div>

@@ -1,47 +1,52 @@
 import React, { useState } from "react";
+import { useTranslation } from "../hooks/useTranslation";
 
-const sections = [
-  {
-    title: "Duke Divinity School Visit",
-    images: Array.from({ length: 37 }, (_, i) => `${i + 1}.webp`)
-  },
-  {
-    title: "IML DU Conference Participation",
-    images: ["a.webp", "b.webp", "c.webp", "d.webp"]
-  },
-  {
-    title: "Sheraton Iftar Mahfeel Presentation",
-    images: ["aa.webp", "ab.webp", "ac.webp", "ad.webp"]
-  },
-  {
-    title: "Malaysia PHAM 2024 Event",
-    images: ["a1.webp", "b1.webp", "c1.webp", "d1.webp", "e1.webp", "f1.webp", "g1.webp", "h1.webp"]
-  },
-  {
-    title: "IUT-OIC Research Workshops",
-    images: Array.from({ length: 12 }, (_, i) => `aa${i + 1}.webp`)
-  },
-  {
-    title: "University Extracurricular Activities",
-    images: ["c2a.webp", "c3a.webp", "c4a.webp", "c5a.webp", "c6a.webp", "c7a.webp"]
-  },
-  {
-    title: "Television Program Appearance",
-    images: Array.from({ length: 12 }, (_, i) => `b${i + 1}b.webp`)
-  },
-  {
-    title: "IUT-OIC Arabic Instructor",
-    images: Array.from({ length: 35 }, (_, i) => `1a${i + 1}.webp`)
-  },
-  {
-    title: "Special Moments Collection",
-    images: Array.from({ length: 8 }, (_, i) => `a${i + 1}a.webp`)
-  }
-];
+
 
 const IMAGES_PER_BATCH = 8;
 
 const ImageGallery = () => {
+  const { t } = useTranslation();
+  
+  const sections = [
+    {
+      title: t('imageSections')[0],
+      images: Array.from({ length: 37 }, (_, i) => `${i + 1}.webp`)
+    },
+    {
+      title: t('imageSections')[1],
+      images: ["a.webp", "b.webp", "c.webp", "d.webp"]
+    },
+    {
+      title: t('imageSections')[2],
+      images: ["aa.webp", "ab.webp", "ac.webp", "ad.webp"]
+    },
+    {
+      title: t('imageSections')[3],
+      images: ["a1.webp", "b1.webp", "c1.webp", "d1.webp", "e1.webp", "f1.webp", "g1.webp", "h1.webp"]
+    },
+    {
+      title: t('imageSections')[4],
+      images: Array.from({ length: 12 }, (_, i) => `aa${i + 1}.webp`)
+    },
+    {
+      title: t('imageSections')[5],
+      images: ["c2a.webp", "c3a.webp", "c4a.webp", "c5a.webp", "c6a.webp", "c7a.webp"]
+    },
+    {
+      title: t('imageSections')[6],
+      images: Array.from({ length: 12 }, (_, i) => `b${i + 1}b.webp`)
+    },
+    {
+      title: t('imageSections')[7],
+      images: Array.from({ length: 35 }, (_, i) => `1a${i + 1}.webp`)
+    },
+    {
+      title: t('imageSections')[8],
+      images: Array.from({ length: 8 }, (_, i) => `a${i + 1}a.webp`)
+    }
+  ];
+  
   const [visibleCount, setVisibleCount] = useState(
     sections.map(() => IMAGES_PER_BATCH)
   );
@@ -91,7 +96,7 @@ const ImageGallery = () => {
                 {/* Animated shine effect */}
                 <span className="absolute top-0 left-[-75%] w-64 h-full bg-white opacity-20 rotate-12 transform translate-x-0 
                    group-hover:animate-shine"></span>
-                Load More
+                {t('loadMore')}
               </button>
             </div>
           )}

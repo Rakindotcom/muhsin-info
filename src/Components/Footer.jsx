@@ -16,6 +16,7 @@ import { collection, addDoc } from "firebase/firestore";
 import { db } from "../firebase";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useTranslation } from "../hooks/useTranslation";
 
 const Sparkle = ({ style }) => (
   <motion.span
@@ -32,6 +33,7 @@ const Sparkle = ({ style }) => (
 );
 
 const Footer = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -114,11 +116,11 @@ const Footer = () => {
           className="text-center mb-16"
         >
           <h4 className="text-emerald-400 text-lg font-semibold mb-2 tracking-wider">
-            Connect with Muhammad Muhsin Mashkur
+            {t('connectWith')}
           </h4>
           <div className="relative inline-block">
             <h2 className="text-white text-4xl md:text-5xl font-bold">
-              Hire for a Session
+              {t('hireForSessionFooter')}
             </h2>
             {[{ top: 0, left: 0 }, { top: 0, right: 0 }, { bottom: 0, left: "50%" }, { bottom: "50%", right: 0 }].map(
               (pos, i) => <Sparkle key={i} style={{ ...pos, position: "absolute" }} />
@@ -145,16 +147,16 @@ const Footer = () => {
                 <div className="w-20 h-20 rounded-full bg-emerald-500 flex items-center justify-center mb-6">
                   <Send className="w-10 h-10 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Message Sent!</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">{t('messageSent')}</h3>
                 <p className="text-gray-300 max-w-xs">
-                  Thank you for reaching out. We'll get back to you soon.
+                  {t('thankYouMessage')}
                 </p>
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
-                {[{ name: "name", placeholder: "Your Name", Icon: User },
-                { name: "phone", placeholder: "Your Phone Number", Icon: Phone },
-                { name: "subject", placeholder: "Your Subject", Icon: FileText }
+                {[{ name: "name", placeholder: t('yourName'), Icon: User },
+                { name: "phone", placeholder: t('yourPhone'), Icon: Phone },
+                { name: "subject", placeholder: t('yourSubject'), Icon: FileText }
                 ].map(({ name, placeholder, Icon }) => (
                   <motion.div key={name} variants={itemVariants} className="relative">
                     <Icon className="absolute left-4 top-1/2 -translate-y-1/2 text-emerald-400 w-5 h-5" />
@@ -174,7 +176,7 @@ const Footer = () => {
                 <motion.div variants={itemVariants} className="relative">
                   <textarea
                     className="w-full bg-white/10 border border-white/20 rounded-lg py-4 px-4 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all min-h-[140px] resize-none"
-                    placeholder="Your Message"
+                    placeholder={t('yourMessage')}
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
@@ -195,12 +197,12 @@ const Footer = () => {
                     {isSubmitting ? (
                       <>
                         <span className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></span>
-                        <span>Sending...</span>
+                        <span>{t('sending')}</span>
                       </>
                     ) : (
                       <>
                         <Send className="w-5 h-5" />
-                        <span>Send Message</span>
+                        <span>{t('sendMessage')}</span>
                       </>
                     )}
                   </button>
@@ -221,7 +223,7 @@ const Footer = () => {
               variants={itemVariants}
               className="text-3xl font-bold mb-10 text-emerald-400"
             >
-              Contact Info
+              {t('contactInfo')}
             </motion.h3>
 
             {/* Email */}
@@ -234,7 +236,7 @@ const Footer = () => {
               </div>
 
               <div className="min-w-0">
-                <h4 className="text-lg font-semibold text-emerald-400">Email</h4>
+                <h4 className="text-lg font-semibold text-emerald-400">{t('email')}</h4>
                 <ul className="text-gray-300 mt-1 space-y-1 text-sm">
                   {[
                     "muhsin.du@gmail.com",
@@ -262,7 +264,7 @@ const Footer = () => {
                 <Phone className="text-white w-5 h-5" />
               </div>
               <div>
-                <h4 className="text-lg font-semibold text-emerald-400">Phone</h4>
+                <h4 className="text-lg font-semibold text-emerald-400">{t('phone')}</h4>
                 <ul className="text-gray-300 mt-1 space-y-1 text-sm">
                   {["+88 01811-996981", "+88 01962-577467"].map((phone) => (
                     <li key={phone}>
@@ -279,7 +281,7 @@ const Footer = () => {
                 <MapPin className="text-white w-5 h-5" />
               </div>
               <div>
-                <h4 className="text-lg font-semibold text-emerald-400">Address</h4>
+                <h4 className="text-lg font-semibold text-emerald-400">{t('address')}</h4>
                 <p className="text-gray-300 mt-1 text-sm leading-relaxed max-w-sm">
                   465/18 West Rampura, Bandhu Nibash Residential Area, Hatirjheel, Dhaka.
                 </p>
@@ -318,16 +320,16 @@ const Footer = () => {
               transition={{ duration: 1.2, ease: "easeOut" }}
               className="text-center mt-6 text-sm text-gray-500 select-none"
             >
-              <p>Copyright © 2025 Muhsin Mashkur Academy</p>
+              <p>{t('copyright')}</p>
               <p>
-                Developed by{" "}
+                {t('developedBy')}{" "}
                 <a
                   href="https://www.linkedin.com/in/rakinalshahriar/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-semibold text-teal-600 hover:text-teal-800 cursor-pointer transition-colors underline"
                 >
-                  Rakin Al Shahriar
+                  রাকিন আল শাহরিয়ার
                 </a>
               </p>
             </motion.footer>

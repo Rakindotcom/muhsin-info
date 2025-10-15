@@ -1,6 +1,11 @@
 "use client"
 
+import { useTranslation } from '../hooks/useTranslation'
+import { useLanguage } from '../contexts/LanguageContext'
+
 export default function HeroSection() {
+  const { t } = useTranslation()
+  const { language } = useLanguage()
   return (
     <section className="relative h-[80vh] md:h-full w-full overflow-hidden">
       {/* Background Image */}
@@ -21,28 +26,28 @@ export default function HeroSection() {
             {/* Desktop badge (inline only on large screens) */}
             <div className="hidden lg:inline-flex items-center rounded-full bg-white/10 backdrop-blur-sm px-4 py-2 mb-6 border border-white/20">
               <div className="h-2 w-2 rounded-full bg-emerald-400 mr-2"></div>
-              <span className="text-sm font-medium text-white/90">Qur'anic Scholar & Speaker</span>
+              <span className="text-sm font-medium text-white/90">{t('quranicScholar')}</span>
             </div>
 
             {/* Main Heading */}
             <h1 className="mb-6 text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl drop-shadow-2xl">
-              <span className="block">Muhsin</span>
+              <span className="block">{language === 'en' ? 'Muhsin' : 'মুহসিন'}</span>
               <span className="block bg-gradient-to-r from-amber-400 via-orange-500 to-amber-600 bg-clip-text text-transparent">
-                Mashkur
+                {language === 'en' ? 'Mashkur' : 'মাশকুর'}
               </span>
             </h1>
 
             {/* Subtitle */}
             <div className="mb-8 space-y-2">
               <p className="text-lg font-medium text-white sm:text-xl lg:text-2xl drop-shadow-lg">
-                A Speaker. A Teacher. <span className="text-amber-400">A Torchbearer of Qur'anic Light.</span>
+                {t('speaker')} <span className="text-amber-400">{t('torchbearer')}</span>
               </p>
             </div>
 
             {/* Description */}
             <div className="bg-black/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
               <p className="text-base text-justify leading-relaxed text-white/95 sm:text-lg lg:text-xl">
-                From memorising the Qur’an at 11, to earning the Prime Minister’s Gold Medal at Dhaka University — Muhsin Mashkur has dedicated his life to making Qur’anic Arabic accessible, helping the Ummah truly understand the Divine Message.
+                {t('heroDescription')}
               </p>
             </div>
           </div>

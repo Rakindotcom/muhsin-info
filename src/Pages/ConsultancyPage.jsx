@@ -4,7 +4,8 @@ import { Button } from "../Components/Button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../Components/Card"
 import Social from "../Components/Social"
 import TypewriterHeading from "../Components/Typewriter"
-import { motion } from "framer-motion";
+import { motion } from "framer-motion"
+import { useTranslation } from "../hooks/useTranslation";
 
 import {
   Calendar, Clock, MessageSquareHeart,
@@ -21,44 +22,33 @@ import {
   ExternalLink,
 } from "lucide-react";
 
-const steps = [
-  {
-    title: "Healing Homes with Faith & Wisdom",
-    content:
-      "Helping couples and families build harmony, resolve conflicts, and strengthen emotional bonds by combining Islamic guidance with insights from contemporary counselling practices — without clinical therapy.",
-  },
-  {
-    title: "Islamic Personal Mentorship — Faithful Living with Purpose",
-    content: `Real-life struggles. Qur’anic solutions — break free, reconnect, transform.
-
-For young minds and busy professionals seeking to rethink their lifestyle and leave behind haram habits like illicit relationships, addictions, or spiritual confusion — we offer one-on-one faith-based mentorship that is practical, non-judgmental, and deeply rooted in Qur’anic wisdom and Prophetic guidance.
-
-Whether you're seeking clarity in a world full of distractions or trying to build a stronger connection with Allah — this is your space for growth, healing, and realignment.
-
-Struggling with addiction, confusion, or emotional lows? Caught between modern chaos and spiritual emptiness?
-
-We help you reconnect with the deeper purpose of life through Islamic wisdom, real conversations, and personalized support — all rooted in the Qur’an and Sunnah.
-
-This is for anyone — student, executive, or parent — who wants to live with clarity, self-control, and faith.`,
-  },
-  {
-    title: "Personal Career Counselling",
-    content:
-      "Find your purpose and build a Halal career.\n\nWhether you're a Madrasah graduate exploring new opportunities or a university student seeking a career aligned with Islamic values — our one-on-one sessions help you discover your strengths, clarify your goals, and plan a career that is both meaningful and Halal.",
-  },
-];
-
 export default function ConsultancyPage() {
+  const { t } = useTranslation();
+  
+  const steps = [
+    {
+      title: t('consultationType1Title'),
+      content: t('consultationType1Content'),
+    },
+    {
+      title: t('consultationType2Title'),
+      content: t('consultationType2Content'),
+    },
+    {
+      title: t('consultationType3Title'),
+      content: t('consultationType3Content'),
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-gray-950 text-gray-100">
       {/* Hero Section */}
       <section className="relative py-20 px-4 bg-gradient-to-br from-gray-900 via-gray-950 to-black">
         <div className="max-w-6xl mx-auto text-center">
           <TypewriterHeading />
-          <p className="text-xl md:text-2xl text-gray-300 mb-4 leading-relaxed">Nurturing Homes & Relationships</p>
+          <p className="text-xl md:text-2xl text-gray-300 mb-4 leading-relaxed">{t('consultancySubtitle')}</p>
           <p className="text-lg text-gray-400 max-w-3xl mx-auto mb-8">
-            Guiding families toward harmony and understanding through authentic Islamic principles combined with modern
-            counselling approaches.
+            {t('consultancyDescription')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="https://calendly.com/muhsin-du/30min" target="_blank" rel="noopener noreferrer">
@@ -66,7 +56,7 @@ export default function ConsultancyPage() {
                 size="lg"
                 className="bg-emerald-600 hover:bg-emerald-700 hover:cursor-pointer text-white border-1 border-white hover:border-amber-400"
               >
-                Book a Session
+                {t('bookSession')}
               </Button>
             </a>
             
@@ -75,7 +65,7 @@ export default function ConsultancyPage() {
               className="bg-blue-600 hover:bg-blue-700 text-white border border-white hover:border-amber-400 hover:cursor-pointer"
               onClick={() => window.open("https://calendly.com/muhsin-du/30min", "_blank")}
             >
-              Check Availability
+              {t('checkAvailability')}
             </Button>
           </div>
         </div>
@@ -105,43 +95,39 @@ export default function ConsultancyPage() {
       <section className="py-16 px-4 bg-gradient-to-b from-gray-900 via-gray-950 to-black">
         <div className="max-w-5xl mx-auto bg-gray-900/50 rounded-2xl shadow-xl backdrop-blur-md p-10 border border-gray-800">
           <h2 className="text-3xl md:text-4xl text-center font-bold mb-8 bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent">
-            About the Consultant
+            {t('aboutConsultantTitle')}
           </h2>
           <div className="space-y-6 text-sm md:text-lg text-gray-300 text-justify leading-relaxed">
             <p>
-              <span className="text-amber-400 font-semibold">Muhammad Muhsin Mashkur</span> is a classically trained Islamic scholar and contemporary educator with a passion for reconnecting people with the Qur’an’s message. A Hafiz of the Qur’an by age 11 and a graduate of Dawratul Hadith, he completed both his <span className="text-amber-400 font-semibold">B.A. and M.A. in Arabic</span> at the University of Dhaka — ranking First Class First in both, and earning the Prime Minister’s Gold Medal and multiple Dean’s Awards.
+              {t('consultantDescription1')}
             </p>
             <p>
-              He holds an MPhil on Qur’anic pedagogy for Bengali speakers and is currently pursuing a PhD focusing on Qur’anic education from primary to higher secondary levels. He serves as a part-time faculty at the Institute of Modern Languages, University of Dhaka, and teaches Arabic at IUT (OIC).
-            </p>
-            <p>
-              With over a decade of experience as a Khatib, mentor, and trainer, he specializes in making Qur’anic Arabic accessible to non-Madrasa learners through innovative, research-based methods. As a <span className="text-amber-400 font-semibold">certified fellow (DDS, USA)</span>, he also consults on education reform, youth guidance, and Islamic family wellbeing — merging classical Islamic wisdom with relevant contemporary insights.
+              {t('consultantDescription2')}
             </p>
           </div>
         </div>
       </section>
 
-
       {/* Services Section */}
       <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Services Offered</h2>
-            <p className="text-gray-400 text-lg">Comprehensive support for every family need</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">{t('servicesOffered')}</h2>
+            <p className="text-gray-400 text-lg">{t('comprehensiveSupport')}</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             <Card className="bg-gray-900 border-gray-800 hover:border-emerald-800 transition-all hover:scale-105">
               <CardHeader>
                 <CardTitle className="text-emerald-400 flex items-center text-xl">
-                  Private Consultations
+                  {t('personalConsultation')}
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-300 mb-4">
-                  One-on-one sessions tailored to your family's unique needs. Available both online and in-person.
+                  {t('personalConsultationDesc')}
                 </p>
                 <div className="flex items-center text-emerald-400 text-sm">
-                  <span>Personalized approach</span>
+                  <span>{t('personalizedApproach')}</span>
                 </div>
               </CardContent>
             </Card>
@@ -150,15 +136,15 @@ export default function ConsultancyPage() {
               <CardHeader>
                 <CardTitle className="text-blue-400 flex items-center text-xl">
                   <Users className="w-6 h-6 mr-2" />
-                  Group Seminars
+                  {t('groupSeminars')}
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-300 mb-4">
-                  Monthly sessions on rotating topics including marriage enrichment and conflict resolution.
+                  {t('groupSeminarsDesc')}
                 </p>
                 <div className="flex items-center text-blue-400 text-sm">
-                  <span>Interactive workshops</span>
+                  <span>{t('interactiveWorkshops')}</span>
                 </div>
               </CardContent>
             </Card>
@@ -167,15 +153,15 @@ export default function ConsultancyPage() {
               <CardHeader>
                 <CardTitle className="text-purple-400 flex items-center text-xl">
                   <BookOpen className="w-6 h-6 mr-2" />
-                  Comprehensive Programmes
+                  {t('comprehensivePrograms')}
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-300 mb-4">
-                  Structured courses for different life stages, from pre-marriage to parenting teenagers.
+                  {t('comprehensiveProgramsDesc')}
                 </p>
                 <div className="flex items-center text-purple-400 text-sm">
-                  <span>Life-stage focused</span>
+                  <span>{t('lifeStageOriented')}</span>
                 </div>
               </CardContent>
             </Card>
@@ -186,38 +172,37 @@ export default function ConsultancyPage() {
               onClick={() => window.open("https://calendly.com/muhsin-du/30min", "_blank")}
               className="bg-gradient-to-r from-emerald-600 to-blue-600 hover:from-emerald-700 hover:to-blue-700 text-white"
             >
-
-              Consult Now
+              {t('consultNowBtn')}
             </Button>
           </div>
         </div>
-      </section>
+      </section>      
 
       {/* Consultation Options */}
       <section className="py-16 px-4 bg-gray-900/30">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Consultation Options</h2>
-            <p className="text-gray-400 text-lg">Choose the perfect session for your needs</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">{t('consultationOptions')}</h2>
+            <p className="text-gray-400 text-lg">{t('consultationOptionsSubtitle')}</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             {/* Quick Advice Card */}
             <Card className="bg-gradient-to-br from-emerald-900/20 to-blue-900/20 border-emerald-800 relative">
               <CardHeader>
-                <CardTitle className="text-emerald-400 flex items-center text-xl">Get Quick Advice – 30 min</CardTitle>
+                <CardTitle className="text-emerald-400 flex items-center text-xl">{t('quickConsultation30')}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
-                <div className="text-3xl font-bold text-emerald-400">৳990</div>
+                <div className="text-3xl font-bold text-emerald-400">{t('price990')}</div>
                 <div className="text-gray-300">
-                  <p className="font-semibold">30-minute focused session</p>
-                  <p className="text-sm text-gray-400 mt-2">For quick insight or urgent concerns</p>
+                  <p className="font-semibold">{t('focusedSession30')}</p>
+                  <p className="text-sm text-gray-400 mt-2">{t('quickInsights')}</p>
                 </div>
                 <div className="space-y-2">
                   <div className="flex items-center text-emerald-400 text-sm">
-                    <span>Targeted guidance</span>
+                    <span>{t('targetedGuidance')}</span>
                   </div>
                   <div className="flex items-center text-emerald-400 text-sm">
-                    <span>Quick solutions</span>
+                    <span>{t('quickSolutions')}</span>
                   </div>
                 </div>
               </CardContent>
@@ -226,23 +211,23 @@ export default function ConsultancyPage() {
             {/* Deep Session Card */}
             <Card className="bg-gradient-to-br from-blue-900/20 to-purple-900/20 border-blue-800 relative">
               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                <Badge className="bg-blue-600 text-white">Most Popular</Badge>
+                <Badge className="bg-blue-600 text-white">{t('mostPopular')}</Badge>
               </div>
               <CardHeader>
-                <CardTitle className="text-blue-400 flex items-center text-xl">Go Deep – 60 min Session</CardTitle>
+                <CardTitle className="text-blue-400 flex items-center text-xl">{t('deepSession60')}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
-                <div className="text-3xl font-bold text-blue-400">৳1500 - ৳2000</div>
+                <div className="text-3xl font-bold text-blue-400">{t('price1500to2000')}</div>
                 <div className="text-gray-300">
-                  <p className="font-semibold">Full hour of in-depth guidance</p>
-                  <p className="text-sm text-gray-400 mt-2">Deep, transformational sessions</p>
+                  <p className="font-semibold">{t('fullHourGuidance')}</p>
+                  <p className="text-sm text-gray-400 mt-2">{t('deepTransformational')}</p>
                 </div>
                 <div className="space-y-2">
                   <div className="flex items-center text-blue-400 text-sm">
-                    <span>Comprehensive analysis</span>
+                    <span>{t('comprehensiveAnalysis')}</span>
                   </div>
                   <div className="flex items-center text-blue-400 text-sm">
-                    <span>Detailed action plan</span>
+                    <span>{t('detailedActionPlan')}</span>
                   </div>
                 </div>
               </CardContent>
@@ -251,20 +236,20 @@ export default function ConsultancyPage() {
             {/* Monthly Support Plan Card */}
             <Card className="bg-gradient-to-br from-purple-900/20 to-pink-900/20 border-purple-800 relative">
               <CardHeader>
-                <CardTitle className="text-purple-400 flex items-center text-xl">Monthly Support Plan</CardTitle>
+                <CardTitle className="text-purple-400 flex items-center text-xl">{t('monthlySupportPlan')}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
-                <div className="text-3xl font-bold text-purple-400">From ৳7,500</div>
+                <div className="text-3xl font-bold text-purple-400">{t('priceFrom7500')}</div>
                 <div className="text-gray-300">
-                  <p className="font-semibold">4 sessions per month</p>
-                  <p className="text-sm text-gray-400 mt-2">For couples/families wanting consistent change</p>
+                  <p className="font-semibold">{t('fourSessionsPerMonth')}</p>
+                  <p className="text-sm text-gray-400 mt-2">{t('forCouplesSeekingChange')}</p>
                 </div>
                 <div className="space-y-2">
                   <div className="flex items-center text-purple-400 text-sm">
-                    <span>Ongoing support</span>
+                    <span>{t('ongoingSupport')}</span>
                   </div>
                   <div className="flex items-center text-purple-400 text-sm">
-                    <span>Tailored strategies</span>
+                    <span>{t('customizedStrategies')}</span>
                   </div>
                 </div>
               </CardContent>
@@ -276,20 +261,21 @@ export default function ConsultancyPage() {
               className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white"
               onClick={() => window.open("https://calendly.com/muhsin-du/30min", "_blank")}
             >
-              Check Availability
+              {t('checkAvailabilityBtn')}
             </Button>
           </div>
         </div>
       </section>
 
+      {/* Friday Sessions */}
       <section className="py-16 px-4 bg-gray-950">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
-              Friday Special Talks & Counselling Sessions
+              {t('fridaySpecialSessions')}
             </h2>
             <p className="text-gray-400 text-lg">
-              After Jumu'ah Prayer · Open to All · Practical & Purpose-Driven
+              {t('fridaySubtitle')}
             </p>
           </div>
 
@@ -302,18 +288,18 @@ export default function ConsultancyPage() {
                   <Calendar className="w-5 h-5 text-emerald-400" />
                 </div>
                 <CardTitle className="text-emerald-400 text-lg leading-snug">
-                  Crafting Your Career with Faith
+                  {t('buildCareerWithFaith')}
                 </CardTitle>
               </CardHeader>
               <CardContent className="text-sm text-gray-300 space-y-2 text-justify">
                 <p className="flex items-center gap-2 text-emerald-300">
-                  <Clock className="w-4 h-4" /> After Jumu’ah Prayer (1:30 PM approx.)
+                  <Clock className="w-4 h-4" /> {t('afterJummah130')}
                 </p>
                 <p className="flex items-center gap-2 text-emerald-200">
-                  <Users className="w-4 h-4" /> Students & Young Professionals
+                  <Users className="w-4 h-4" /> {t('studentsYoungProfessionals')}
                 </p>
                 <p>
-                  A motivational session exploring how Islamic principles can guide you in choosing and thriving in a career aligned with purpose and barakah.
+                  {t('careerSessionDesc')}
                 </p>
               </CardContent>
             </Card>
@@ -326,18 +312,18 @@ export default function ConsultancyPage() {
                   <MessageSquareHeart className="w-5 h-5 text-blue-400" />
                 </div>
                 <CardTitle className="text-blue-400 text-lg leading-snug">
-                  Healing the Self
+                  {t('soulHealing')}
                 </CardTitle>
               </CardHeader>
               <CardContent className="text-sm text-gray-300 space-y-2 text-justify">
                 <p className="flex items-center gap-2 text-blue-300">
-                  <Clock className="w-4 h-4" /> After Jumu’ah Prayer (1:30 PM approx.)
+                  <Clock className="w-4 h-4" /> {t('afterJummah130')}
                 </p>
                 <p className="flex items-center gap-2 text-blue-200">
-                  <Users className="w-4 h-4" /> Anyone facing emotional burden
+                  <Users className="w-4 h-4" /> {t('anyoneEmotionalBurdens')}
                 </p>
                 <p>
-                  A reflection session combining Islamic insights and practical frameworks to deal with emotional well-being and personal growth.
+                  {t('soulHealingDesc')}
                 </p>
               </CardContent>
             </Card>
@@ -350,18 +336,18 @@ export default function ConsultancyPage() {
                   <Users className="w-5 h-5 text-purple-400" />
                 </div>
                 <CardTitle className="text-purple-400 text-lg leading-snug">
-                  Saving the Home
+                  {t('protectingHome')}
                 </CardTitle>
               </CardHeader>
               <CardContent className="text-sm text-gray-300 space-y-2 text-justify">
                 <p className="flex items-center gap-2 text-purple-300">
-                  <Clock className="w-4 h-4" /> After Jumu’ah Prayer (1:30 PM approx.)
+                  <Clock className="w-4 h-4" /> {t('afterJummah130')}
                 </p>
                 <p className="flex items-center gap-2 text-purple-200">
-                  <Users className="w-4 h-4" /> Couples, Parents, Family Leaders
+                  <Users className="w-4 h-4" /> {t('couplesParentsFamilyLeaders')}
                 </p>
                 <p>
-                  A powerful session to rebuild harmony in the home using Islamic family values blended with practical counselling perspectives.
+                  {t('protectingHomeDesc')}
                 </p>
               </CardContent>
             </Card>
@@ -373,26 +359,25 @@ export default function ConsultancyPage() {
       <section className="py-16 px-4 bg-gray-900/30">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Books & Resources</h2>
-            <p className="text-gray-400 text-lg">Instant digital downloads to support your journey</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">{t('booksResources')}</h2>
+            <p className="text-gray-400 text-lg">{t('instantDigitalDownloads')}</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             <Card className="bg-gray-900 border-gray-800 hover:border-emerald-800 transition-all hover:scale-105">
               <CardHeader>
                 <CardTitle className="text-emerald-400 flex items-center text-lg">
                   <BookOpen className="w-5 h-5 mr-2" />
-                  Islamic Marriage Toolkit
+                  {t('islamicMarriageToolkit')}
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold text-emerald-400 mb-2">450 BDT</div>
-                <p className="text-gray-300 mb-4">Instant PDF download</p>
+                <div className="text-2xl font-bold text-emerald-400 mb-2">৳450</div>
+                <p className="text-gray-300 mb-4">{t('instantPdfDownload')}</p>
                 <Button
                   variant="outline"
                   className="bg-transparent border-emerald-600 text-emerald-400 hover:bg-emerald-950 hover:text-emerald-300 w-full"
                 >
-
-                  Download Now
+                  {t('downloadNow')}
                 </Button>
               </CardContent>
             </Card>
@@ -401,18 +386,17 @@ export default function ConsultancyPage() {
               <CardHeader>
                 <CardTitle className="text-blue-400 flex items-center text-lg">
                   <Users className="w-5 h-5 mr-2" />
-                  Parenting Wisdom for Modern Families
+                  {t('parentingWisdomModernFamilies')}
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold text-blue-400 mb-2">350 BDT</div>
-                <p className="text-gray-300 mb-4">Instant PDF download</p>
+                <div className="text-2xl font-bold text-blue-400 mb-2">৳350</div>
+                <p className="text-gray-300 mb-4">{t('instantPdfDownload')}</p>
                 <Button
                   variant="outline"
                   className="bg-transparent border-blue-600 text-blue-400 hover:bg-blue-950 hover:text-blue-300 w-full"
                 >
-
-                  Download Now
+                  {t('downloadNow')}
                 </Button>
               </CardContent>
             </Card>
@@ -421,18 +405,17 @@ export default function ConsultancyPage() {
               <CardHeader>
                 <CardTitle className="text-purple-400 flex items-center text-lg">
                   <Heart className="w-5 h-5 mr-2" />
-                  40 Hadith on Family Life
+                  {t('fortyHadithFamilyLife')}
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold text-purple-400 mb-2">250 BDT</div>
-                <p className="text-gray-300 mb-4">Instant PDF download</p>
+                <div className="text-2xl font-bold text-purple-400 mb-2">৳250</div>
+                <p className="text-gray-300 mb-4">{t('instantPdfDownload')}</p>
                 <Button
                   variant="outline"
                   className="bg-transparent border-purple-600 text-purple-400 hover:bg-purple-950 hover:text-purple-300 w-full"
                 >
-
-                  Download Now
+                  {t('downloadNow')}
                 </Button>
               </CardContent>
             </Card>
@@ -444,33 +427,31 @@ export default function ConsultancyPage() {
       <section className="py-16 px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Frequently Asked Questions</h2>
-            <p className="text-gray-400 text-lg">Everything you need to know about our services</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">{t('frequentlyAskedQuestions')}</h2>
+            <p className="text-gray-400 text-lg">{t('everythingYouNeedToKnow')}</p>
           </div>
           <div className="space-y-6">
             {[
               {
-                question: "What is Islamic Family Consultancy?",
-                answer:
-                  "A professional service that addresses family challenges through Islamic principles combined with modern counselling techniques.",
+                question: t('islamicFamilyConsultingFaq'),
+                answer: t('islamicFamilyConsultingAnswer'),
               },
               {
-                question: "Is online counselling confidential?",
-                answer: "Absolutely. All sessions use secure platforms and follow strict confidentiality protocols.",
+                question: t('faq2Question'),
+                answer: t('faq2Answer'),
               },
               {
-                question: "What age groups are your parenting programmes for?",
-                answer: "Guidance for all stages: 0–5, 6–12, and 13–19 years.",
+                question: t('faq3Question'),
+                answer: t('faq3Answer'),
               },
               {
-                question: "Do you offer emergency support?",
-                answer: "Priority bookings available within 24 hours for urgent cases.",
+                question: t('faq4Question'),
+                answer: t('faq4Answer'),
               },
             ].map((faq, index) => (
               <Card key={index} className="bg-gray-900 border-gray-800">
                 <CardContent className="p-6">
                   <h3 className="text-lg mt-4 font-semibold text-emerald-400 mb-3 flex items-center">
-
                     {faq.question}
                   </h3>
                   <p className="text-gray-300 leading-relaxed">→ {faq.answer}</p>
@@ -484,12 +465,11 @@ export default function ConsultancyPage() {
       {/* Call to Action */}
       <section className="py-20 px-4 bg-gradient-to-r from-emerald-900/30 to-blue-900/30">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">Ready to Transform Your Family Life?</h2>
-          <p className="text-xl text-gray-300 mb-8">Take the first step towards a harmonious Islamic family today</p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">{t('readyToTransformFamily')}</h2>
+          <p className="text-xl text-gray-300 mb-8">{t('takeFirstStepToday')}</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white border-2 border-white hover:border-amber-400">
-
-              Book Your Session
+              {t('bookYourSession')}
             </Button>
             <Button
               size="lg"
@@ -497,11 +477,13 @@ export default function ConsultancyPage() {
               onClick={() => window.open("https://calendly.com/muhsin-du/30min", "_blank")}
             >
               <ExternalLink className="w-5 h-5 mr-2" />
-              Check Availability
+              {t('checkAvailabilityBtn')}
             </Button>
           </div>
         </div>
       </section>
+
+      <Social />
     </div>
   )
 }

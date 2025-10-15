@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { FaYoutube, FaLinkedin, FaFacebook, FaWhatsapp, FaExternalLinkAlt } from "react-icons/fa";
+import { useTranslation } from "../hooks/useTranslation";
 
 export default function Social() {
   const [isVisible, setIsVisible] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     setIsVisible(true);
@@ -21,11 +23,10 @@ export default function Social() {
         {/* Header */}
         <div className={`mb-10 transition-all duration-1000 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 leading-snug">
-            Welcome to Our Islamic Knowledge Seeking Family
+            {t('socialWelcome')}
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed px-2">
-            Join a supportive community of dedicated learners seeking Islamic knowledge, where studying, sharing wisdom,
-            and spiritual growth come together. Begin your journey of learning with us.
+            {t('socialDescription')}
           </p>
         </div>
 

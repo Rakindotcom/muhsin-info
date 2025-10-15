@@ -6,10 +6,13 @@ import { Route, Routes } from 'react-router-dom'
 import NotFoundPage from './Pages/404'
 import ConsultancyPage from './Pages/ConsultancyPage';
 import Media from './Pages/Media';
+import { LanguageProvider } from './contexts/LanguageContext';
+import LanguagePopup from './Components/LanguagePopup';
 
 const App = () => {
   return (
-    <>
+    <LanguageProvider>
+      <LanguagePopup />
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -19,7 +22,7 @@ const App = () => {
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />
-    </>
+    </LanguageProvider>
   )
 }
 

@@ -1,67 +1,70 @@
 import { useState } from "react"
 import ImageGallery from "../Components/ImageGallary.jsx";
-
-const videos = [
-  {
-    id: "R4htJl8nBrQ",
-    url: "https://www.youtube.com/embed/R4htJl8nBrQ",
-    title: "Result vs Reality",
-    thumbnail: `https://img.youtube.com/vi/R4htJl8nBrQ/mqdefault.jpg`,
-  },
-  {
-    id: "QvQos0V-Kl4",
-    url: "https://www.youtube.com/embed/QvQos0V-Kl4",
-    title: "Prophetic Leadership",
-    thumbnail: `https://img.youtube.com/vi/QvQos0V-Kl4/mqdefault.jpg`,
-  },
-  {
-    id: "3FA7UYU3xRo",
-    url: "https://www.youtube.com/embed/3FA7UYU3xRo",
-    title: "Madrasa Potential",
-    thumbnail: `https://img.youtube.com/vi/3FA7UYU3xRo/mqdefault.jpg`,
-  },
-  {
-    id: "Wth0pNMnzGg",
-    url: "https://www.youtube.com/embed/Wth0pNMnzGg",
-    title: "Satan’s Trap",
-    thumbnail: `https://img.youtube.com/vi/Wth0pNMnzGg/mqdefault.jpg`,
-  },
-  {
-    id: "vDEXjZZEkpg",
-    url: "https://www.youtube.com/embed/vDEXjZZEkpg",
-    title: "Fitr Charity",
-    thumbnail: `https://img.youtube.com/vi/vDEXjZZEkpg/mqdefault.jpg`,
-  },
-  {
-    id: "3xWuS4MmtzM",
-    url: "https://www.youtube.com/embed/3xWuS4MmtzM",
-    title: "Proxy Hajj",
-    thumbnail: `https://img.youtube.com/vi/3xWuS4MmtzM/mqdefault.jpg`,
-  },
-  {
-    id: "sAhVmFLfoBs",
-    url: "https://www.youtube.com/embed/sAhVmFLfoBs",
-    title: "Qurbani Rules",
-    thumbnail: `https://img.youtube.com/vi/sAhVmFLfoBs/mqdefault.jpg`,
-  },
-  {
-    id: "V8fU6crKWOk",
-    url: "https://www.youtube.com/embed/V8fU6crKWOk",
-    title: "Post-Death Rituals",
-    thumbnail: `https://img.youtube.com/vi/V8fU6crKWOk/mqdefault.jpg`,
-  },
-]
+import { useTranslation } from "../hooks/useTranslation";
 
 const Media = () => {
+  const { t } = useTranslation()
+  
+  const videos = [
+    {
+      id: "R4htJl8nBrQ",
+      url: "https://www.youtube.com/embed/R4htJl8nBrQ",
+      title: t('videoTitles')[0],
+      thumbnail: `https://img.youtube.com/vi/R4htJl8nBrQ/mqdefault.jpg`,
+    },
+    {
+      id: "QvQos0V-Kl4",
+      url: "https://www.youtube.com/embed/QvQos0V-Kl4",
+      title: t('videoTitles')[1],
+      thumbnail: `https://img.youtube.com/vi/QvQos0V-Kl4/mqdefault.jpg`,
+    },
+    {
+      id: "3FA7UYU3xRo",
+      url: "https://www.youtube.com/embed/3FA7UYU3xRo",
+      title: t('videoTitles')[2],
+      thumbnail: `https://img.youtube.com/vi/3FA7UYU3xRo/mqdefault.jpg`,
+    },
+    {
+      id: "Wth0pNMnzGg",
+      url: "https://www.youtube.com/embed/Wth0pNMnzGg",
+      title: t('videoTitles')[3],
+      thumbnail: `https://img.youtube.com/vi/Wth0pNMnzGg/mqdefault.jpg`,
+    },
+    {
+      id: "vDEXjZZEkpg",
+      url: "https://www.youtube.com/embed/vDEXjZZEkpg",
+      title: t('videoTitles')[4],
+      thumbnail: `https://img.youtube.com/vi/vDEXjZZEkpg/mqdefault.jpg`,
+    },
+    {
+      id: "3xWuS4MmtzM",
+      url: "https://www.youtube.com/embed/3xWuS4MmtzM",
+      title: t('videoTitles')[5],
+      thumbnail: `https://img.youtube.com/vi/3xWuS4MmtzM/mqdefault.jpg`,
+    },
+    {
+      id: "sAhVmFLfoBs",
+      url: "https://www.youtube.com/embed/sAhVmFLfoBs",
+      title: t('videoTitles')[6],
+      thumbnail: `https://img.youtube.com/vi/sAhVmFLfoBs/mqdefault.jpg`,
+    },
+    {
+      id: "V8fU6crKWOk",
+      url: "https://www.youtube.com/embed/V8fU6crKWOk",
+      title: t('videoTitles')[7],
+      thumbnail: `https://img.youtube.com/vi/V8fU6crKWOk/mqdefault.jpg`,
+    },
+  ]
+  
   const [selectedVideo, setSelectedVideo] = useState(videos[0])
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800">
       <div className="text-center py-10 border-b-4 border-gray-500">
         <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">
-          Gallery
+          {t('gallery')}
         </h1>
-        <p className="text-gray-400 text-lg">Curated collection of amazing visuals</p>
+        <p className="text-gray-400 text-lg">{t('galleryDescription')}</p>
       </div>
 
       <div className="h-32 bg-gradient-to-b from-gray-800/30 to-transparent"></div>
@@ -137,7 +140,7 @@ const Media = () => {
                             {video.title}
                           </h4>
                           <p className="text-[11px] text-gray-500 mt-1">
-                            {selectedVideo.id === video.id ? "Now Playing" : "Click to play"}
+                            {selectedVideo.id === video.id ? t('nowPlaying') : t('clickToPlay')}
                           </p>
                         </div>
 

@@ -1,11 +1,20 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "../hooks/useTranslation";
 
 const TypewriterHeading = () => {
-  const phrases = [
-    "Islamic Family",
-    "Islamic Personal",
-    "Personal Career",
-  ];
+  const { t, language } = useTranslation();
+  
+  const phrases = language === 'en' 
+    ? [
+        "Islamic Family",
+        "Islamic Personal", 
+        "Personal Career",
+      ]
+    : [
+        "ইসলামিক পারিবারিক",
+        "ইসলামিক ব্যক্তিগত",
+        "ব্যক্তিগত ক্যারিয়ার",
+      ];
 
   const [index, setIndex] = useState(0); // index of current phrase
   const [displayedText, setDisplayedText] = useState(""); // text being typed
@@ -39,7 +48,7 @@ const TypewriterHeading = () => {
 
   return (
     <h1 className="text-4xl pt-10 md:text-6xl font-bold mb-6 bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent leading-tight">
-      {displayedText} Counselling
+      {displayedText} {language === 'en' ? 'Consultation' : 'পরামর্শ'}
     </h1>
   );
 };

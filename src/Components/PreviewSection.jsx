@@ -1,28 +1,30 @@
 // src/Components/PreviewSection.jsx
 import React from "react";
-
-const previews = [
-  {
-    title: "Academy",
-    description: "Explore our courses and learning materials designed for your growth.",
-    link: "https://academy.muhsinmashkur.com/",
-    image: "/academy.png",
-  },
-  {
-    title: "Media",
-    description: "Check out our latest videos, podcasts, and media resources.",
-    link: "/media",
-    image: "/media.png",
-  },
-  {
-    title: "Consultancy",
-    description: "Get expert advice and personalized consultation from our team.",
-    link: "/consultancy",
-    image: "/consult.png",
-  },
-];
+import { useTranslation } from "../hooks/useTranslation";
 
 const PreviewSection = () => {
+  const { t } = useTranslation();
+  
+  const previews = [
+    {
+      title: t('previewAcademy'),
+      description: t('previewAcademyDesc'),
+      link: "https://academy.muhsinmashkur.com/",
+      image: "/academy.png",
+    },
+    {
+      title: t('previewMedia'),
+      description: t('previewMediaDesc'),
+      link: "/media",
+      image: "/media.png",
+    },
+    {
+      title: t('previewConsultancy'),
+      description: t('previewConsultancyDesc'),
+      link: "/consultancy",
+      image: "/consult.png",
+    },
+  ];
   return (
     <div className="max-w-6xl mx-auto py-16 px-4 grid md:grid-cols-3 gap-8">
       {previews.map((item, index) => {
@@ -49,7 +51,7 @@ const PreviewSection = () => {
                 <h3 className="text-xl font-semibold">{item.title}</h3>
                 <p className="mt-2 text-gray-600">{item.description}</p>
                 <button className="mt-4 px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700">
-                  Explore
+                  {t('explore')}
                 </button>
               </div>
             </a>
